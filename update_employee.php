@@ -20,6 +20,7 @@
 
   if (isset($_POST['fire'])) {
     foreach ($_POST['fire'] as $fire) {
+      echo $fire;
       $fireQuery = "DELETE from 'EMPLOYEE' where empID = $fire;";
       $conn->query($fireQuery);
     }
@@ -32,7 +33,7 @@
     while ($row = $employees->fetch_assoc()) {
       echo "<tr>
               <td>{$row['name']}</td>
-              <td>${$row['wage']}/hr</td>
+              <td>\${$row['wage']}/hr</td>
               <td>{$row['position']}</td>
               <td>{$row['clockedIn']}</td>
               <td>
