@@ -36,7 +36,7 @@
               <td>{$row['position']}</td>
               <td>{$row['clockedIn']}</td>
               <td>
-                <button onclick=\"window.location.href = 'insert_employe.php?empID={$row['empID']}'\">Edit</button>
+                <button type='button' onclick=\"window.location.href = 'insert_employee.php?empID={$row['empID']}'\">Edit</button>
               </td>
               <td><input type='checkbox' name='fire[{$row['empID']}]'></td>
             </tr>
