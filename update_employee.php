@@ -20,13 +20,12 @@
 
   if (isset($_POST['fire'])) {
     foreach ($_POST['fire'] as $fire) {
-      $int_fire = intval($fire);
-      $fireQuery = "delete from 'EMPLOYEE' where empID = $int_fire;";
+      $fireQuery = "delete from EMPLOYEE where empID = $fire";
       $conn->query($fireQuery);
     }
   }
 
-  $employeeQuery = "select * from EMPLOYEE;";
+  $employeeQuery = "select * from EMPLOYEE";
   $employees = $conn->query($employeeQuery);
 
   if ($employees->num_rows != 0) {
