@@ -39,7 +39,7 @@
               <td>
                 <button type='button' onclick=\"window.location.href = 'insert_employee.php?empID={$row['empID']}'\">Edit</button>
               </td>
-              <td><input type='checkbox' name='fire[{$row['empID']}]'></td>
+              <td><input type='checkbox' name='fire[]' value='{$row['empID']}'></td>
             </tr>
       ";
     }
