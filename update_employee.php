@@ -21,7 +21,7 @@
   if (isset($_POST['fire'])) {
     foreach ($_POST['fire'] as $fire) {
       $int_fire = intval($fire);
-      $fireQuery = "DELETE from 'EMPLOYEE' where empID = $int_fire;";
+      $fireQuery = "delete from 'EMPLOYEE' where empID = $int_fire;";
       $conn->query($fireQuery);
     }
   }
