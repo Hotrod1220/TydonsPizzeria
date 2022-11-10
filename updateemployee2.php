@@ -10,7 +10,7 @@ if($conn->query($sql))
    $err = $conn->errno(); 
    if($err == 1062)
    {
-      echo "<p>Employee name $_POST[empID] already exists!</p>"; 
+      echo "<p>Employee ID $_POST[empID] already exists!</p>"; 
    } else {
       echo "error code $err";
    }
