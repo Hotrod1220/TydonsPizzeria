@@ -35,15 +35,14 @@
               <td>{$row['wage']}</td>
               <td>{$row['position']}</td>
               <td>{$row['clockedIn']}</td>
-              <td><form action='insert_employee.php' method='post'>
-                    <input type='submit' name='edit[{$row['empID']}]' value='Edit'>
-                  </form>
               <td>
-                    <input type='check' name='fire[]' value='{$row['empID']}'>
-                  </form>
+                <button onclick='window.location.href = 'insert_employe.php?empID={$row['name']}>Edit</button>
+              </td>
+              <td><input type='checkbox' name='fire[{$row['empID']}]'></td>
             </tr>
       ";
     }
+    echo '</form>'
   } else {
     echo 'No employees :(';
   }
