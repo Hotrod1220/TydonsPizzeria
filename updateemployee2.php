@@ -7,7 +7,7 @@ if($conn->query($sql))
 	echo "<h3> Employee information updated.</h3>";
 
 } else {
-   $err = $conn->errno(); 
+   $err = $conn->errno; 
    if($err == 1062)
    {
       echo "<p>Employee ID $_POST[empID] already exists!</p>"; 
