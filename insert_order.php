@@ -18,7 +18,7 @@
       echo "Status: <input type=text name=\"status\" size=1> <br><br>";
       echo "Price: <input type=text name=\"price\" size=5> <br><br>";
       echo "Order Time: <input type=text name=\"orderTime\" size=5> <br><br>";
-      echo "Is it Complete: <input type=checkbox name=\"isComplete\" size=1> <br><br>";
+      echo "Is it Complete: <input type=checkbox name=\"isComplete\" value=1> <br><br>";
       echo "Employee ID: <select name=\"empID\"><br><br>";
       echo "Customer ID: <select name=\"cusID\">";
 

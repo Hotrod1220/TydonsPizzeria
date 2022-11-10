@@ -11,7 +11,7 @@
             Name: <input type=text name="name" size=20><br><br>
             Wage: <input type=text name="wage" size=6><br><br>
             Position: <input type=text name="position" size=15><br><br>
-            On Shift?: <input type=checkbox name="clockedIn" size=15><br><br>
+            On Shift?: <input type=checkbox name="clockedIn" value=1><br><br>
             <input type=submit name="submit" value="Insert">
         </form>     
     </body>
