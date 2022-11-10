@@ -20,8 +20,8 @@
 
   if (isset($_POST['fire'])) {
     foreach ($_POST['fire'] as $fire) {
-      echo $fire;
-      $fireQuery = "DELETE from 'EMPLOYEE' where empID = $fire;";
+      $int_fire = intval($fire);
+      $fireQuery = "DELETE from 'EMPLOYEE' where empID = $int_fire;";
       $conn->query($fireQuery);
     }
   }
@@ -39,7 +39,7 @@
               <td>
                 <button type='button' onclick=\"window.location.href = 'insert_employee.php?empID={$row['empID']}'\">Edit</button>
               </td>
-              <td><input type='checkbox' name='fire[]' value='{$row['empID']}'></td>
+              <td><input type='checkbox' name='fire[]' value={$row['empID']}></td>
             </tr>
       ";
     }
