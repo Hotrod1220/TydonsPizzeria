@@ -32,17 +32,17 @@
     while ($row = $employees->fetch_assoc()) {
       echo "<tr>
               <td>{$row['name']}</td>
-              <td>{$row['wage']}</td>
+              <td>${$row['wage']}/hr</td>
               <td>{$row['position']}</td>
               <td>{$row['clockedIn']}</td>
               <td>
-                <button onclick='window.location.href = 'insert_employe.php?empID={$row['name']}>Edit</button>
+                <button onclick='window.location.href = 'insert_employe.php?empID={$row['empID']}'>Edit</button>
               </td>
               <td><input type='checkbox' name='fire[{$row['empID']}]'></td>
             </tr>
       ";
     }
-    echo '</form>';
+    echo '<input type="submit"></form>';
   } else {
     echo 'No employees :(';
   }
