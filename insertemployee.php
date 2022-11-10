@@ -1,7 +1,7 @@
 <?php
 require_once '/home/hipt3660/config/mysql_config.php';
     
-$sql = "insert into EMPLOYEE (empID, wage, position, clockedIn) values ('$_POST[empID]','$_POST[wage]','$_POST[position]','$_POST[clockedIn]')";
+$sql = "insert into EMPLOYEE (empID, name, wage, position, clockedIn) values ('$_POST[empID]','$_POST[name]','$_POST[wage]','$_POST[position]','$_POST[clockedIn]')";
 if($conn->query($sql)) {
     echo "<h3>Employee has been hired.</h3>";
 }
