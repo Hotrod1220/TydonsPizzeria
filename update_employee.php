@@ -42,7 +42,7 @@
             </tr>
       ";
     }
-    echo '</form>'
+    echo '</form>';
   } else {
     echo 'No employees :(';
   }
