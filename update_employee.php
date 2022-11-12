@@ -42,13 +42,14 @@ if (isset($_POST['empID'])) {
         echo $e->getMessage();
       }
 
-      if ($result->fetch_assoc()->num_rows != 0) {
-        echo "<h2>Update Information for {$result['name']}</h2>;";
+      if ($result->num_rows != 0) {
+        $employee = $result->fetch_assoc();
+        echo "<h2>Update Information for {$employee['name']}</h2>;";
         echo "<form action='', method='post'>";
-        echo "Name: <input type=text name='name' value='{$result['name']}' size=20><br><br>";
-        echo "Wage: <input type=text name='wage' value={$result['wage']} size=6><br><br>";
-        echo "Position: <input type=text name='position' value='{$result['position']}' size=15><br><br>";
-        echo "On Shift?: <input type=checkbox name='clockedIn' value={$result['clockedIn']}><br><br>";
+        echo "Name: <input type=text name='name' value='{$employee['name']}' size=20><br><br>";
+        echo "Wage: <input type=text name='wage' value={$employee['wage']} size=6><br><br>";
+        echo "Position: <input type=text name='position' value='{$employee['position']}' size=15><br><br>";
+        echo "On Shift?: <input type=checkbox name='clockedIn' value={$employee['clockedIn']}><br><br>";
         echo "<input type=hidden name='empID' value='{$_GET['empID']}'>";
         echo "<input type=submit name='submit' value='Update'>";
         echo "</form>";
