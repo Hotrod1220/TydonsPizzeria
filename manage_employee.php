@@ -5,7 +5,7 @@
   </head>
    <body>
     <h1>Employee Management</h1>
-    <a href="index.php">Return</a> Home.<br>
+    <a href="index.php">Return</a> Home.<br><br>
     <form action='' method='post'>
     <table>
       <tr>
