@@ -8,9 +8,9 @@ if (isset($_POST['empID'])) {
   $sql = "update EMPLOYEE set name = '{$_POST['name']}',
     wage = {$_POST['wage']},
     position = '{$_POST['position']}',
-    clockedIn = '{$_POST['clockedIn']}',
-    where empID = {$_POST['empID']};";
-  echo $sql;
+    clockedIn = '{$_POST['clockedIn']}'
+    where empID = {$_POST['empID']};"
+  ;
   try {
     $conn->query($sql);
     echo "Information for {$_POST['name']} updated successfully.<br><br>";
