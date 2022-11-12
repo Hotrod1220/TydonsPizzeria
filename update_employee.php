@@ -37,7 +37,7 @@ if (isset($_POST['empID'])) {
       $sql = "select * from EMPLOYEE where empID = {$_GET['empID']}";
       $result = $conn->query($sql);
 
-      if ($result->num_rows != 0) {
+      if ($result->fetch_assoc()->num_rows != 0) {
         echo "<h2>Update Information for {$result['name']}</h2>;";
         echo "<form action='', method='post'>";
         echo "Name: <input type=text name='name' value='{$result['name']}' size=20><br><br>";
