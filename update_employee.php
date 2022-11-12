@@ -10,10 +10,11 @@ if (isset($_POST['empID'])) {
     position = '{$_POST['position']}',
     clockedIn = '{$_POST['clockedIn']}',
     where empID = {$_POST['empID']};";
+  echo $sql;
   try {
     $conn->query($sql);
     echo "Information for {$_POST['name']} updated successfully.<br><br>";
-    echo "<a href=\"main.php\">Return</a> to Home Page.";
+    echo "<a href=\"index.php\">Return</a> to Home Page.";
     exit();
   } catch (Exception $e) {
     echo $e->getMessage();
@@ -44,7 +45,7 @@ if (isset($_POST['empID'])) {
 
       if ($result->num_rows != 0) {
         $employee = $result->fetch_assoc();
-        echo "<h2>Update Information for {$employee['name']}</h2>;";
+        echo "<h2>Update Information for {$employee['name']}</h2>";
         echo "<form action='', method='post'>";
         echo "Name: <input type=text name='name' value='{$employee['name']}' size=20><br><br>";
         echo "Wage: <input type=text name='wage' value={$employee['wage']} size=6><br><br>";
