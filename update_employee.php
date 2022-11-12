@@ -1,5 +1,6 @@
 <?php
 if (isset($_POST['empID'])) {
+  // posted a change, update table
   require_once '/home/hipt3660/config/mysql_config.php';
   $clockedIn = 0;
   if (isset($_POST['clockedIn'])) {
@@ -15,7 +16,7 @@ if (isset($_POST['empID'])) {
   try {
     $conn->query($sql);
     echo "Information for {$_POST['name']} updated successfully.<br><br>";
-    echo "<a href=\"index.php\">Return</a> to Home Page.";
+    echo "<a href=\"manage_employee.php\">Return</a> to Employee Management.";
     exit();
   } catch (Exception $e) {
     echo $e->getMessage();
@@ -52,7 +53,7 @@ if (isset($_POST['empID'])) {
         echo "Wage: <input type=text name='wage' value={$employee['wage']} size=6><br><br>";
         echo "Position: <input type=text name='position' value='{$employee['position']}' size=15><br><br>";
         echo "On Shift?:";
-        if (boolval($employee['clockedIn'])) {
+        if ($employee['clockedIn']) {
           echo "<input type=checkbox name='clockedIn' checked><br><br>";
         } else {
           echo "<input type=checkbox name='clockedIn'><br><br>";
