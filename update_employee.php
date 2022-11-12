@@ -53,9 +53,9 @@ if (isset($_POST['empID'])) {
         echo "Position: <input type=text name='position' value='{$employee['position']}' size=15><br><br>";
         echo "On Shift?:";
         if (boolval($employee['clockedIn'])) {
-          echo "<input type=checkbox name='clockedIn' checked><br><br>"
+          echo "<input type=checkbox name='clockedIn' checked><br><br>";
         } else {
-          echo "<input type=checkbox name='clockedIn'><br><br>"
+          echo "<input type=checkbox name='clockedIn'><br><br>";
         }
         echo "<input type=hidden name='empID' value='{$_GET['empID']}'>";
         echo "<input type=submit name='submit' value='Update'>";
