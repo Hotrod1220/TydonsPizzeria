@@ -1,14 +1,15 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 if (isset($_POST['empID'])) {
   require_once '/home/hipt3660/config/mysql_config.php';
+  $clockedIn = 0;
+  if (isset($_POST['clockedIn'])) {
+    $clockedIn = 1;
+  }
 
   $sql = "update EMPLOYEE set name = '{$_POST['name']}',
     wage = {$_POST['wage']},
     position = '{$_POST['position']}',
-    clockedIn = '{$_POST['clockedIn']}'
+    clockedIn = $clockedIn
     where empID = {$_POST['empID']};"
   ;
   try {

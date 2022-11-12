@@ -29,12 +29,13 @@
 
   if ($employees->num_rows != 0) {
     while ($row = $employees->fetch_assoc()) {
+      $clocked = ($row['clockedIn'] == 0 ? 'No' : 'Yes');
       echo 
         "<tr>
           <td>{$row['name']}</td>
           <td>\${$row['wage']}/hr</td>
           <td>{$row['position']}</td>
-          <td>{$row['clockedIn']}</td>
+          <td>$clocked</td>
           <td>
             <button type='button' onclick=\"window.location.href = 'update_employee.php?empID={$row['empID']}'\">Edit</button>
           </td>
