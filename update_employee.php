@@ -52,10 +52,10 @@ if (isset($_POST['empID'])) {
         echo "Wage: <input type=text name='wage' value={$employee['wage']} size=6><br><br>";
         echo "Position: <input type=text name='position' value='{$employee['position']}' size=15><br><br>";
         echo "On Shift?: <input type=checkbox name='clockedIn'";
-        if ($employee['clockedIn']) {
+        if (boolval($employee['clockedIn'])) {
           echo " checked";
         }
-        echo "}><br><br>";
+        echo "><br><br>";
         echo "<input type=hidden name='empID' value='{$_GET['empID']}'>";
         echo "<input type=submit name='submit' value='Update'>";
         echo "</form>";
