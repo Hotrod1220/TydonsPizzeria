@@ -35,7 +35,12 @@ if (isset($_POST['empID'])) {
     <?php
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from EMPLOYEE where empID = {$_GET['empID']}";
-      $result = $conn->query($sql);
+      
+      try {
+        $result = $conn->query($sql);
+      } catch (Exception $e) {
+        echo $e->getMessage();
+      }
 
       if ($result->fetch_assoc()->num_rows != 0) {
         echo "<h2>Update Information for {$result['name']}</h2>;";
