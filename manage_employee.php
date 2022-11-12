@@ -5,6 +5,7 @@
   </head>
    <body>
     <h1>Employee Management</h1>
+    <a href="index.php">Return</a> Home.
     <form action='' method='post'>
     <table>
       <tr>
@@ -43,7 +44,7 @@
         </tr>"
       ;
     }
-    echo '<input type="submit"></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" value="Fire selected"></td></tr></table></form>';
   } else {
     echo 'No employees :(';
   }
