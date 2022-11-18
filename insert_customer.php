@@ -26,9 +26,9 @@ if (isset($_POST['name'])) {
         <h2>Add a New Customer</h2>
         <form action="" method=post>
             Name: <input type=text name="name" size=20><br><br>
-            Address: $<input type=text name="address" size=6>/hr<br><br>
-            Email: <input type=text name="email" size=20><br><br>
-            Phone Number: <input type=text name="phoneNum" size=15><br><br>
+            Address: $<input type=text name="address" size=50>/hr<br><br>
+            Email: <input type=text name="email" size=50><br><br>
+            Phone Number: <input type=text name="phoneNum" size=20><br><br>
             <input type=submit name="submit" value="Insert">
         </form>     
     </body>

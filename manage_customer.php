@@ -30,11 +30,10 @@
 
   if ($customers->num_rows != 0) {
     while ($row = $customers->fetch_assoc()) {
-      $clocked = ($row['clockedIn'] == 0 ? 'No' : 'Yes');
       echo 
         "<tr>
           <td>{$row['name']}</td>
-          <td>\${$row['address']}/hr</td>
+          <td>{$row['address']}</td>
           <td>{$row['email']}</td>
           <td>{$row['phoneNum']}</td>
           <td>
