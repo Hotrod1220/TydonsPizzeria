@@ -19,15 +19,15 @@ if (isset($_POST['itemName'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tydon's Pizzeria - Hire a New Menu</title>
+        <title>Tydon's Pizzeria - Add a New Menu Item</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h2>Hire a New Menu</h2>
+        <h2>Add a New Menu Item</h2>
         <form action="" method=post>
             Name: <input type=text name="name" size=20><br><br>
             Item Price: $<input type=text name="itemPrice" size=6><br><br>
-            On Shift?: <input type=checkbox name="isVegan" value=1><br><br>
+            Is it Vegan?: <input type=checkbox name="isVegan" value=1><br><br>
             Stock: <input type=text name="stock" size=15><br><br>
             <input type=submit name="submit" value="Insert">
         </form>     

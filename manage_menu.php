@@ -13,7 +13,7 @@
         <th>Item Price</th>
         <th>Is it Vegan?</th>
         <th>Stock</th>
-        <th>Edit Menu?</th>
+        <th>Edit Menu Item?</th>
         <th>Delete Menu Item?</th>
       </tr>
 <?php
