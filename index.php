@@ -6,6 +6,8 @@
         <body>
   ';
   echo '<h1>Welcome to Tydon\'s Pizzeria</h1>
+        <button onclick="window.location.href = \'insert_menu.php\'">Add menu item</button><br><br>
+        <button onclick="window.location.href = \'manage_menu.php\'">Manage Menu</button><br><br>
         <button onclick="window.location.href = \'insert_customer.php\'">Add customer</button><br><br>
         <button onclick="window.location.href = \'manage_customer.php\'">Manage customers</button><br><br>
         <button onclick="window.location.href = \'insert_employee.php\'">Hire employee</button><br><br>
