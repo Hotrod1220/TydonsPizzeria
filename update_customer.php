@@ -11,6 +11,7 @@ if (isset($_POST['custID'])) {
   ;
   try {
     $conn->query($sql);
+    echo $sql
     echo "Information for {$_POST['name']} updated successfully.<br><br>";
     echo "<a href=\"manage_customer.php\">Return</a> to Customer Management.";
     exit();
