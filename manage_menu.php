@@ -33,7 +33,7 @@
       $vegan = ($row['isVegan'] == 0 ? 'No' : 'Yes');
       echo 
         "<tr>
-          <td>{$row['name']}</td>
+          <td>{$row['itemName']}</td>
           <td>\${$row['itemPrice']}</td>
           <td>$vegan</td>
           <td>{$row['stock']}</td>
