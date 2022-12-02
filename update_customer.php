@@ -6,7 +6,7 @@ if (isset($_POST['custID'])) {
   $sql = "update CUSTOMER set name = '{$_POST['name']}',
     address = '{$_POST['address']}',
     email = '{$_POST['email']}',
-    phoneNum = '{$_POST['phoneNum']}',
+    phoneNum = '{$_POST['phoneNum']}'
     where custID = {$_POST['custID']};"
   ;
   try {
@@ -46,7 +46,7 @@ if (isset($_POST['custID'])) {
         echo "<h2>Update Information for {$customer['name']}</h2>";
         echo "<form action='' method='post'>";
         echo "Name: <input type=text name='name' value='{$customer['name']}' size=20><br><br>";
-        echo "Address: <input type=text name='address' value={$customer['address']} size=20><br><br>";
+        echo "Address: <input type=text name='address' value='{$customer['address']}' size=20><br><br>";
         echo "Email: <input type=text name='email' value='{$customer['email']}' size=20><br><br>";
         echo "Phone Number: <input type=text name='phoneNum' value='{$customer['phoneNum']}' size=20><br><br>";
         echo "<input type=hidden name='custID' value='{$_GET['custID']}'>";

@@ -10,7 +10,7 @@ if (isset($_POST['itemID'])) {
   $sql = "update MENU set itemName = '{$_POST['itemName']}',
     itemPrice = {$_POST['itemPrice']},
     isVegan = $vegan,
-    stock = {$_POST['stock']},
+    stock = {$_POST['stock']}
     where itemID = {$_POST['itemID']};"
   ;
   try {
