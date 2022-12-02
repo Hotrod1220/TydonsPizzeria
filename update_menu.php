@@ -10,7 +10,7 @@ if (isset($_POST['itemID'])) {
   $sql = "update MENU set itemName = '{$_POST['itemName']}',
     itemPrice = '{$_POST['itemPrice']}',
     isVegan = $vegan,
-    stock = '{$_POST['stock']}',
+    stock = {$_POST['stock']},
     where itemID = {$_POST['itemID']};"
   ;
   try {
@@ -50,14 +50,14 @@ if (isset($_POST['itemID'])) {
         echo "<h2>Update Information for {$menu['itemName']}</h2>";
         echo "<form action='' method='post'>";
         echo "Name: <input type=text name='itemName' value='{$menu['itemName']}' size=20><br><br>";
-        echo "Item Price: <input type=text name='itemPrice' value={$menu['itemPrice']} size=6><br><br>";
+        echo "Item Price: <input type=text name='itemPrice' value='{$menu['itemPrice']}' size=6><br><br>";
         echo "Is it Vegan?:";
         if ($menu['isVegan']) {
           echo "<input type=checkbox name='isVegan' checked><br><br>";
         } else {
           echo "<input type=checkbox name='isVegan'><br><br>";
         }
-        echo "Stock: <input type=text name='stock' value='{$menu['stock']}' size=4><br><br>";
+        echo "Stock: <input type=text name='stock' value={$menu['stock']} size=4><br><br>";
         echo "<input type=hidden name='itemID' value='{$_GET['itemID']}'>";
         echo "<input type=submit name='submit' value='Update'>";
         echo "</form>";
