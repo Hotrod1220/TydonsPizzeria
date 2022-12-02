@@ -33,10 +33,10 @@ create table ORDER
     price float, 
     orderTime int, 
     isComplete boolean, 
-    foreign key (empID) references EMPLOYEE (empID),
-    -- Do we need a on delete ____ on update ____
-    foreign key (custID) references CUSTOMER (custID)    
-    -- Do we need a on delete ____ on update ____
+    foreign key (empID) references EMPLOYEE (empID)
+    on delete set null on update set null,
+    foreign key (custID) references CUSTOMER (custID)
+    on delete cascade on update cascade
 );
 
 create table CONTAINS
