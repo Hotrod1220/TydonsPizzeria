@@ -25,7 +25,7 @@ if (isset($_POST['name'])) {
     <body>
         <h2>Add a New Menu Item</h2>
         <form action="" method=post>
-            Name: <input type=text name="name" size=20><br><br>
+            Name: <input type=text name="itemName" size=20><br><br>
             Item Price: $<input type=text name="itemPrice" size=6><br><br>
             Is it Vegan?: <input type=checkbox name="isVegan" value=1><br><br>
             Stock: <input type=text name="stock" size=15><br><br>
