@@ -33,7 +33,7 @@
       $vegan = ($row['isVegan'] == 0 ? 'No' : 'Yes');
       echo 
         "<tr>
-          <td>{$row['itemName']}</td>
+          <td>{$row['name']}</td>
           <td>\${$row['itemPrice']}</td>
           <td>$vegan</td>
           <td>{$row['stock']}</td>
@@ -44,7 +44,7 @@
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" value="Fire selected"></td></tr></table></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" value="Delete selected"></td></tr></table></form>';
   } else {
     echo 'No menu :(';
   }
