@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['name'])) {
+if (isset($_POST['itemName'])) {
 
     require_once '/home/hipt3660/config/mysql_config.php';
         
