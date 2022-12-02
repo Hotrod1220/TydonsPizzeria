@@ -7,10 +7,10 @@ if (isset($_POST['itemID'])) {
     $vegan = 1;
   }
 
-  $sql = "update MENU set itemName = '{$_POST['itemName']}',
+  $sql = "update MENU set itemName = {$_POST['itemName']},
     itemPrice = {$_POST['itemPrice']},
     isVegan = $vegan,
-    stock = '{$_POST['stock']}',
+    stock = {$_POST['stock']},
     where itemID = {$_POST['itemID']};"
   ;
   try {
