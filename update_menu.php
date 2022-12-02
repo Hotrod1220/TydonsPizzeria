@@ -8,7 +8,7 @@ if (isset($_POST['itemID'])) {
   }
 
   $sql = "update MENU set itemName = '{$_POST['itemName']}',
-    itemPrice = '{$_POST['itemPrice']}',
+    itemPrice = {$_POST['itemPrice']},
     isVegan = $vegan,
     stock = {$_POST['stock']},
     where itemID = {$_POST['itemID']};"
@@ -50,7 +50,7 @@ if (isset($_POST['itemID'])) {
         echo "<h2>Update Information for {$menu['itemName']}</h2>";
         echo "<form action='' method='post'>";
         echo "Name: <input type=text name='itemName' value='{$menu['itemName']}' size=20><br><br>";
-        echo "Item Price: <input type=text name='itemPrice' value='{$menu['itemPrice']}' size=6><br><br>";
+        echo "Item Price: <input type=text name='itemPrice' value={$menu['itemPrice']} size=6><br><br>";
         echo "Is it Vegan?:";
         if ($menu['isVegan']) {
           echo "<input type=checkbox name='isVegan' checked><br><br>";
