@@ -3,10 +3,10 @@ if (isset($_POST['custID'])) {
   // posted a change, update table
   require_once '/home/hipt3660/config/mysql_config.php';
 
-  $sql = "update CUSTOMER set name = {$_POST['name']},
-    address = {$_POST['address']},
-    email = {$_POST['email']},
-    phoneNum = {$_POST['phoneNum']},
+  $sql = "update CUSTOMER set name = '{$_POST['name']}',
+    address = '{$_POST['address']}',
+    email = '{$_POST['email']}',
+    phoneNum = '{$_POST['phoneNum']}',
     where custID = {$_POST['custID']};"
   ;
   try {
