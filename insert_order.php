@@ -23,10 +23,10 @@
           $priceRes = $conn->query($priceQuery);
           $pricePass = $priceRes->fetch_assoc();
           $priceItem = $pricePass['itemPrice'];
+          echo $priceItem;
           $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceItem, $now, 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
-          echo $priceQuery, $priceRes;
-          $conn->query($addQuery);
+          // $conn->query($addQuery);
         }
       }
     echo '<table> <tr> 
