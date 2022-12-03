@@ -1,3 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tydon's Pizzeria - Place an Order</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h2>OOGA</h2>
+        <form action="view_order.php" method=post>
+            <select name="custName">
+                <?php
+                    $sql = "SELECT * FROM CUSTOMER";
+                    $result = $conn->query($sql);
+                    if($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $custID = $row["custID"];
+                            $field2name = $row["name"];
+                            echo "<option value='$custID'>$field2name</option>";
+                        }
+                    }
+                    else {
+                        $err = $conn->errno; 
+                        echo "<p>MySQL error code $err </p>";
+                    }
+                ?>
+            Name: <input type=text name="itemName" size=20><br><br>
+            Item Price: $<input type=text name="itemPrice" size=6><br><br>
+            Is it Vegan?: <input type=checkbox name="isVegan" value=1><br><br>
+            Stock: <input type=text name="stock" size=15><br><br>
+            <input type=submit name="submit" value="Insert">
+        </form>    
+    </body>
+</html>
+
 <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
@@ -52,37 +86,3 @@
     exit();
 
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Tydon's Pizzeria - Place an Order</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h2>OOGA</h2>
-        <form action="view_order.php" method=post>
-            <select name="custName">
-                <?php
-                    $sql = "SELECT * FROM CUSTOMER";
-                    $result = $conn->query($sql);
-                    if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $custID = $row["custID"];
-                            $field2name = $row["name"];
-                            echo "<option value='$custID'>$field2name</option>";
-                        }
-                    }
-                    else {
-                        $err = $conn->errno; 
-                        echo "<p>MySQL error code $err </p>";
-                    }
-                ?>
-            Name: <input type=text name="itemName" size=20><br><br>
-            Item Price: $<input type=text name="itemPrice" size=6><br><br>
-            Is it Vegan?: <input type=checkbox name="isVegan" value=1><br><br>
-            Stock: <input type=text name="stock" size=15><br><br>
-            <input type=submit name="submit" value="Insert">
-        </form>    
-    </body>
-</html>
