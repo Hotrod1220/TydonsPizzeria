@@ -10,6 +10,7 @@
         <form action="" method=post>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
+    date_default_timezone_set('America/Edmonton');
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
@@ -17,7 +18,6 @@
     while($clockedEmp = $res->fetch_assoc()) {
         $clockd = $clockedEmp['empID'];
     }
-    session_start();
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
