@@ -10,6 +10,8 @@
         <form action="" method=post>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
     $res = $conn->query($getEmp);
     while($clockedEmp = $res->fetch_assoc()) {
