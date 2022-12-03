@@ -18,12 +18,14 @@
     session_start();
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
+        $priceQuery = "select itemPrice from MENU where itemID = $add";
+        $priceRes = $conn->query($priceQuery);
+        while ($pricePass = $priceRes->fetch_assoc()) {
+            $price = $pricePass['itemPrice'];
+        }
         foreach ($_POST['add'] as $add) {
-          $priceQuery = "select itemPrice from MENU where itemID = $add";
-          $priceRes = ($conn->query($priceQuery))->fetch_assoc();
-          $priceItem = $priceRes['itemPrice'];
           echo $priceItem;
-          $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceItem, $now, 0, $clockd, '$_POST[cust]')";
+          $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
           // $conn->query($addQuery);
         }
@@ -58,7 +60,7 @@
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
-        // this button does not work :S
+        // this button does work!
         echo '<tr><td><input type="submit" value="Add selected to Order" action=""></td></tr></table>';
     }
     else {
