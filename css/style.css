@@ -54,6 +54,20 @@ header {
     background-color: #910E07;
 }
 
+table {
+    width: 100%;
+    text-align: left;
+}
+
+table th, td {
+    border: 1px solid;
+    border-color: #FA9627;
+}
+
+table th {
+    padding: 3px 5px;
+}
+
 /* Typography */
 h1 {
     font-size: 50px;

@@ -1,30 +1,39 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Tydon's Pizzeria - Add a New Menu Item</title>
+        <title>Tydon's Pizzeria - Manage Menu Items</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
     </head>
-   <body>
-   <header class="wrapper">
+    <body>
+        <header class="wrapper">
             <div class="container orange-text">
                 <h1><a href="index.php">Tydon's Pizzeria<a></h1>
             </div>
-    </header>
-    <h1>Menu Management</h1>
-    <a href="index.php">Return</a> Home.<br><br>
-    <form action='' method='post'>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Item Price</th>
-        <th>Is it Vegan?</th>
-        <th>Stock</th>
-        <th>Edit Menu Item?</th>
-        <th>Delete Menu Item?</th>
-      </tr>
+        </header>
+        <main class="container">
+            <div class="text-wrapper">
+              <h1>Menu Management</h1>
+            </div>
+            <a href="index.php" class="button">Return Home.</a>
+            <form action='' method='post'>
+            <table class="text-wrapper">
+              <tr>
+                <th>Name</th>
+                <th>Item Price</th>
+                <th>Is it Vegan?</th>
+                <th>Stock</th>
+                <th>Edit Menu Item?</th>
+                <th>Delete Menu Item?</th>
+              </tr>
+            </table>  
+        </main>
+    </body>
+</html>
+
 <?php
   require_once '/home/hipt3660/config/mysql_config.php';
   if (isset($_POST['fire'])) {
