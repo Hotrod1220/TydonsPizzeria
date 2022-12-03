@@ -1,3 +1,18 @@
+<?php
+    require_once '/home/hipt3660/config/mysql_config.php';
+    $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
+    $res = $conn->query($getEmp);
+    while($clockedEmp = $res->fetch_assoc()) {
+        $clockd = $clockedEmp['empID'];
+    }
+    session_start(); 
+    if (isset($_POST['add'])) {
+        foreach ($_POST['add'] as $add) {
+          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, $custID)";
+          $conn->query($addQuery);
+        }
+      }
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,19 +48,6 @@
 </html>
 
 <?php
-    require_once '/home/hipt3660/config/mysql_config.php';
-    $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
-    $res = $conn->query($getEmp);
-    while($clockedEmp = $res->fetch_assoc()) {
-        $clockd = $clockedEmp['empID'];
-    }
-    session_start(); 
-    if (isset($_POST['add'])) {
-        foreach ($_POST['add'] as $add) {
-          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, $custID)";
-          $conn->query($addQuery);
-        }
-      }
     echo '<table> <tr> 
     <td> Item ID </td> 
     <td> Name </td> 
