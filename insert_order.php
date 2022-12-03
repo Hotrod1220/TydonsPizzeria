@@ -16,7 +16,7 @@
                       <td>'. $field3name.'</td> 
                       <td>'. $field4name.'</td> 
                       <td>'. $field5name.'</td> 
-                  </tr>';
+                  </tr> <br>';
         }
         echo "<h3>Order up!</h3>";
     }
