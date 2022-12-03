@@ -1,13 +1,4 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Tydon's Pizzeria - Place an Order</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        
-        <form action="" method=post>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
@@ -29,6 +20,17 @@
           // $conn->query($addQuery);
         }
       }
+      ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tydon's Pizzeria - Place an Order</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        
+        <form action="" method=post>
+<?
     echo '<table> <tr> 
     <td> Item ID </td> 
     <td> Name </td> 
@@ -85,7 +87,6 @@
                         echo "<p>MySQL error code $err </p>";
                     }
                 ?>
-            <input type=submit name="submit" value="Confirm">
         </form>
     </body>
 </html>
