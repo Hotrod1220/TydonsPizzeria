@@ -19,24 +19,6 @@ if (isset($_POST['name'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tydon's Pizzeria - Add a New Customer</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h2>Add a New Customer</h2>
-        <form action="" method=post>
-            Name: <input type=text name="name" size=20><br><br>
-            Address: <input type=text name="address" size=20><br><br>
-            Email: <input type=text name="email" size=20><br><br>
-            Phone Number: <input type=text name="phoneNum" size=20><br><br>
-            <input type=submit name="submit" value="Insert">
-        </form>     
-    </body>
-</html>
-
-<!DOCTYPE html>
-<html>
-    <head>
         <meta charset="UTF-8">
         <title>Tydon's Pizzeria - Add a New Customer</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">

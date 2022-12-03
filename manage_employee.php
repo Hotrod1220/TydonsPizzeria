@@ -1,9 +1,18 @@
 <html>
-  <head>
-    <title>Tydon\'s Pizzeria Employee Management</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tydon's Pizzeria - Add a New Menu Item</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
    <body>
+   <header class="wrapper">
+            <div class="container orange-text">
+                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
+            </div>
+    </header>
     <h1>Employee Management</h1>
     <a href="index.php">Return</a> Home.<br><br>
     <form action='' method='post'>
