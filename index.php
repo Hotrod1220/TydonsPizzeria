@@ -30,13 +30,13 @@
                   </div>
                   <div class="text-wrapper">
                       <h3>Employee Options</h3>
-                      <a href="insert_menu.php" class="button">Hire Employee</a>
-                      <a href="manage_menu.php" class="button">Manage Employees</a>
+                      <a href="insert_employee.php" class="button">Hire Employee</a>
+                      <a href="manage_employee.php" class="button">Manage Employees</a>
                   </div>
                   <div class="text-wrapper">
                       <h3>Order Options</h3>
-                      <a href="insert_menu.php" class="button">Place an Order</a>
-                      <a href="manage_menu.php" class="button">View an Order</a>
+                      <a href="insert_order.php" class="button">Place an Order</a>
+                      <a href="view_order.php" class="button">View an Order</a>
                   </div>
                   <div class="text-wrapper">
                       <a href="update_website.php" class="button">DEV: update website page</a>
