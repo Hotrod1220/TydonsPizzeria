@@ -8,24 +8,6 @@
     <body>
         
         <form action="" method=post>
-        <h2>Select your name: </h2>
-            <select name="cust">
-                <?php
-                    $sql = "SELECT * FROM CUSTOMER";
-                    $result = $conn->query($sql);
-                    if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $custID = $row["custID"];
-                            $field2name = $row["name"];
-                            echo "<option value='$custID'>$field2name</option>";
-                        }
-                    }
-                    else {
-                        $err = $conn->errno; 
-                        echo "<p>MySQL error code $err </p>";
-                    }
-                ?>
-            <input type=submit name="submit" value="Confirm">
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
@@ -84,7 +66,24 @@
     }
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
-
+<h2>Select your name: </h2>
+            <select name="cust">
+                <?php
+                    $sql = "SELECT * FROM CUSTOMER";
+                    $result = $conn->query($sql);
+                    if($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $custID = $row["custID"];
+                            $field2name = $row["name"];
+                            echo "<option value='$custID'>$field2name</option>";
+                        }
+                    }
+                    else {
+                        $err = $conn->errno; 
+                        echo "<p>MySQL error code $err </p>";
+                    }
+                ?>
+            <input type=submit name="submit" value="Confirm">
         </form>
     </body>
 </html>
