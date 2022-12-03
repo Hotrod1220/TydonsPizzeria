@@ -1,4 +1,14 @@
-<?php
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tydon's Pizzeria - Place an Order</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h2>Select your name: </h2>
+        <form action="" method=post>
+        <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
     $res = $conn->query($getEmp);
@@ -9,6 +19,7 @@
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
           $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, '$_POST[cust]')";
+          echo $addQuery;
           $conn->query($addQuery);
         }
       }
@@ -43,7 +54,7 @@
         }
         echo "<h3>Order up!</h3>";
         // this button does not work :S
-        echo '<tr><td><input type="submit" value="Add selected to Order" action="view_order.php"></td></tr></table>';
+        echo '<tr><td><input type="submit" value="Add selected to Order" action=""></td></tr></table>';
     }
     else {
         $err = $conn->errno; 
@@ -51,15 +62,6 @@
     }
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Tydon's Pizzeria - Place an Order</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h2>Select your name: </h2>
-        <form action="" method=post>
             <select name="cust">
                 <?php
                     $sql = "SELECT * FROM CUSTOMER";
