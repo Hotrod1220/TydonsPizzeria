@@ -19,6 +19,7 @@
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
           $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, '$_POST[cust]')";
+          echo $addQuery;
           $conn->query($addQuery);
         }
       }
