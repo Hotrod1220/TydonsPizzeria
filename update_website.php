@@ -9,5 +9,6 @@
     shell_exec('chmod -R 777 /home/hipt3660/public_html/*');
     echo "<pre>$output</pre>";
     echo 'Updated!';
+    echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
   }
 ?>

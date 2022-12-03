@@ -3,12 +3,12 @@
     session_start(); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-          $addQuery = "INSERT into ORDER (content) values ($add)";
+          $addQuery = "INSERT into ORDER (content, price, orderTime) values ($add, $field3name, now())";
           $conn->query($addQuery);
         }
       }
     echo '<table> <tr> 
-    <td> ID </td> 
+    <td> Item ID </td> 
     <td> Name </td> 
     <td> Price </td> 
     <td> Vegan </td> 
@@ -37,7 +37,7 @@
                   </tr> <br>';
         }
         echo "<h3>Order up!</h3>";
-        echo '<td><input type="submit" value="Add selected to Order"></td></table>';
+        echo '<tr><td><input type="submit" value="Add selected to Order" action="view_order.php"></td></tr></table>';
     }
     else {
         $err = $conn->errno; 
