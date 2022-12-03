@@ -37,7 +37,8 @@
                         $err = $conn->errno; 
                         echo "<p>MySQL error code $err </p>";
                     }
-                    
+                    ?>
+<?php
     echo '<table> <tr> 
     <td> Item ID </td> 
     <td> Name </td> 
@@ -75,8 +76,6 @@
         echo "<p>MySQL error code $err </p>";
     }
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
-    exit();
-
 ?>
             <input type=submit name="submit" value="Confirm">
         </form>    
