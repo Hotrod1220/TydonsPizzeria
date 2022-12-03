@@ -1,12 +1,19 @@
 <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     session_start(); 
+    if (isset($_POST['add'])) {
+        foreach ($_POST['add'] as $add) {
+          $addQuery = "INSERT into ORDER (content) values ($add)";
+          $conn->query($addQuery);
+        }
+      }
     echo '<table> <tr> 
     <td> ID </td> 
     <td> Name </td> 
     <td> Price </td> 
     <td> Vegan </td> 
     <td> Stock </td> 
+    <td> Add to Order </td>
 </tr>';
     $sql = "SELECT * FROM MENU";
     $result = $conn->query($sql);
@@ -18,28 +25,25 @@
             $field4name = $row["isVegan"];
             $field5name = $row["stock"];
 
-            if($field4name) {
-                $vegan = "Yes";
-            } else {
-                $vegan = "No";
-            }
-            
+            $vegan = ($field4name == 0 ? 'No' : 'Yes');
+
             echo '<tr> 
                       <td>'. $field1name.'</td> 
                       <td>'. $field2name.'</td> 
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name.'</td> 
+                      <td><input type="checkbox" name="add[]" value={$row["itemID"]}></td>
                   </tr> <br>';
         }
         echo "<h3>Order up!</h3>";
-        echo '</table>';
+        echo '<td><input type="submit" value="Add selected to Order"></td></table>';
     }
     else {
         $err = $conn->errno; 
         echo "<p>MySQL error code $err </p>";
     }
-    echo "<a href=\"index.php\">Return</a> to Home Page.";
+    echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
     exit();
 
 ?>
