@@ -38,6 +38,7 @@
                         echo "<p>MySQL error code $err </p>";
                     }
                     ?>
+                    </form>
 <?php
     echo '<table> <tr> 
     <td> Item ID </td> 
@@ -78,6 +79,6 @@
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
             <input type=submit name="submit" value="Confirm">
-        </form>    
+         
     </body>
 </html>
