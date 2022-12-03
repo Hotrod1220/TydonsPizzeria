@@ -19,10 +19,10 @@
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-          $priceQuery = "select itemPrice from MENU where itemID = $add";
-          $priceRes = $conn->query($priceQuery);
-          $pricePass = $priceRes->fetch_assoc();
-          $priceItem = $pricePass['itemPrice'];
+          // $priceQuery = "select itemPrice from MENU where itemID = $add";
+          // $priceRes = $conn->query($priceQuery);
+          // $pricePass = $priceRes->fetch_assoc();
+          // $priceItem = $pricePass['itemPrice'];
           echo $priceItem;
           $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceItem, $now, 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
