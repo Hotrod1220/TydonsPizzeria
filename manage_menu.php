@@ -62,7 +62,7 @@
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class=\"small-button\" value="Delete selected"></td></tr></table></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Delete selected"></td></tr></table></form>';
   } else {
     echo 'No menu :(';
   }
