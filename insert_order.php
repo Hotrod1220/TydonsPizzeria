@@ -18,7 +18,7 @@
     session_start();
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
-        $priceQuery = "select itemPrice from MENU where itemID = $add";
+        $priceQuery = "select itemPrice from MENU where itemID = '$_POST[add]'";
         $priceRes = $conn->query($priceQuery);
         while ($pricePass = $priceRes->fetch_assoc()) {
             $price = $pricePass['itemPrice'];
