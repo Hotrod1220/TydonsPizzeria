@@ -19,7 +19,8 @@
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
           $priceQuery = "select itemPrice from MENU where itemID = $add";
-          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceQuery, NOW(), 0, $clockd, '$_POST[cust]')";
+          $priceRes = $conn->query($priceQuery);
+          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceRes, date('Y-m-d H:i:s'), 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
           $conn->query($addQuery);
         }
