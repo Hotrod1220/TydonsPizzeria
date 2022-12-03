@@ -24,9 +24,10 @@
             while ($pricePass = $priceRes->fetch_assoc()) {
                 $price = $pricePass['itemPrice'];
                 echo $price;
+                echo $pricePass;
             }
-            $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
-            echo $addQuery;
+            // $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
+            // echo $addQuery;
             // $conn->query($addQuery);
         }
       }
@@ -77,8 +78,8 @@
                     if($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             $custID = $row["custID"];
-                            $field2name = $row["name"];
-                            echo "<option value='$custID'>$field2name</option>";
+                            $field2 = $row["name"];
+                            echo "<option value='$custID'>$field2</option>";
                         }
                     }
                     else {
