@@ -39,7 +39,7 @@
                       <a href="manage_menu.php" class="button">View an Order</a>
                   </div>
                   <div class="text-wrapper">
-                      <a href="view_order.php" class="button">DEV: update website page</a>
+                      <a href="update_website.php" class="button">DEV: update website page</a>
                   </div>
               </div>
           </main>
