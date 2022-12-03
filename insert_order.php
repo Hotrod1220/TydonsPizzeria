@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h2>Select your name: </h2>
+        
         <form action="" method=post>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
@@ -18,7 +18,8 @@
     session_start(); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, '$_POST[cust]')";
+          $priceQuery = "select itemPrice from MENU where itemID = $add";
+          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceQuery, NOW(), 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
           $conn->query($addQuery);
         }
@@ -62,6 +63,7 @@
     }
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
+<h2>Select your name: </h2>
             <select name="cust">
                 <?php
                     $sql = "SELECT * FROM CUSTOMER";
