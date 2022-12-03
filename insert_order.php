@@ -8,7 +8,7 @@
     session_start(); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, $custID)";
+          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $field3name, now(), 0, $clockd, '$_POST[cust]')";
           $conn->query($addQuery);
         }
       }
@@ -22,7 +22,7 @@
     <body>
         <h2>OOGA</h2>
         <form action="view_order.php" method=post>
-            <select name="custName">
+            <select name="cust">
                 <?php
                     $sql = "SELECT * FROM CUSTOMER";
                     $result = $conn->query($sql);
@@ -38,10 +38,6 @@
                         echo "<p>MySQL error code $err </p>";
                     }
                 ?>
-            Name: <input type=text name="itemName" size=20><br><br>
-            Item Price: $<input type=text name="itemPrice" size=6><br><br>
-            Is it Vegan?: <input type=checkbox name="isVegan" value=1><br><br>
-            Stock: <input type=text name="stock" size=15><br><br>
             <input type=submit name="submit" value="Insert">
         </form>    
     </body>
