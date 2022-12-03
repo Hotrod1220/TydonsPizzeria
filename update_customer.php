@@ -60,7 +60,7 @@ if (isset($_POST['custID'])) {
         echo "Email: <input type=text name='email' value='{$customer['email']}' size=20><br><br>";
         echo "Phone Number: <input type=text name='phoneNum' value='{$customer['phoneNum']}' size=20><br><br>";
         echo "<input type=hidden name='custID' value='{$_GET['custID']}'>";
-        echo "<input type=submit name='submit' value='Update'>";
+        echo "<input type=submit class='small-button' name='submit' value='Update'>";
         echo "</form>";
       } else {
         echo "no customer with ID {$_GET['custID']} :(";

@@ -69,7 +69,7 @@ if (isset($_POST['itemID'])) {
         }
         echo "Stock: <input type=text name='stock' value={$menu['stock']} size=4><br><br>";
         echo "<input type=hidden name='itemID' value='{$_GET['itemID']}'>";
-        echo "<input type=submit name='submit' value='Update'>";
+        echo "<input type=submit class='small-button' name='submit' value='Update'>";
         echo "</form>";
       } else {
         echo "no menu with ID {$_GET['itemID']} :(";

@@ -69,7 +69,7 @@ if (isset($_POST['empID'])) {
           echo "<input type=checkbox name='clockedIn'><br><br>";
         }
         echo "<input type=hidden name='empID' value='{$_GET['empID']}'>";
-        echo "<input type=submit name='submit' value='Update'>";
+        echo "<input type=submit class='small-button' name='submit' value='Update'>";
         echo "</form>";
       } else {
         echo "no employee with ID {$_GET['empID']} :(";
