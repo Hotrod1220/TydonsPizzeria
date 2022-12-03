@@ -12,34 +12,6 @@
           $conn->query($addQuery);
         }
       }
-    ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Tydon's Pizzeria - Place an Order</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h2>OOGA</h2>
-        <form action="" method=post>
-            <select name="cust">
-                <?php
-                    $sql = "SELECT * FROM CUSTOMER";
-                    $result = $conn->query($sql);
-                    if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $custID = $row["custID"];
-                            $field2name = $row["name"];
-                            echo "<option value='$custID'>$field2name</option>";
-                        }
-                    }
-                    else {
-                        $err = $conn->errno; 
-                        echo "<p>MySQL error code $err </p>";
-                    }
-                    ?>
-                    </form>
-<?php
     echo '<table> <tr> 
     <td> Item ID </td> 
     <td> Name </td> 
@@ -47,7 +19,7 @@
     <td> Vegan </td> 
     <td> Stock </td> 
     <td> Add to Order </td>
-</tr>';
+    </tr>';
     $sql = "SELECT * FROM MENU";
     $result = $conn->query($sql);
     if($result->num_rows > 0) {
@@ -78,7 +50,36 @@
     }
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tydon's Pizzeria - Place an Order</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h2>OOGA</h2>
+        <form action="" method=post>
+            <select name="cust">
+                <?php
+                    $sql = "SELECT * FROM CUSTOMER";
+                    $result = $conn->query($sql);
+                    if($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $custID = $row["custID"];
+                            $field2name = $row["name"];
+                            echo "<option value='$custID'>$field2name</option>";
+                        }
+                    }
+                    else {
+                        $err = $conn->errno; 
+                        echo "<p>MySQL error code $err </p>";
+                    }
+                ?>
             <input type=submit name="submit" value="Confirm">
-         
+        </form>
     </body>
 </html>
+
+    
+
+         
