@@ -1,6 +1,6 @@
 <?php
     require_once '/home/hipt3660/config/mysql_config.php';
-        
+    session_start(); 
     $sql = "SELECT * FROM MENU";
     echo '<table border="0" cellspacing="2" cellpadding="2"> 
       <tr> 
@@ -12,9 +12,9 @@
       </tr>';
     if($conn->query($sql)) {
         while($row = $conn->fetch_assoc()) {
-            $field1name = $row["id"];
-            $field2name = $row["name"];
-            $field3name = $row["price"];
+            $field1name = $row["itemID"];
+            $field2name = $row["itemName"];
+            $field3name = $row["itemPrice"];
             $field4name = $row["isVegan"];
             $field5name = $row["stock"];
             echo '<tr> 
