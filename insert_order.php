@@ -8,6 +8,24 @@
     <body>
         
         <form action="" method=post>
+        <h2>Select your name: </h2>
+            <select name="cust">
+                <?php
+                    $sql = "SELECT * FROM CUSTOMER";
+                    $result = $conn->query($sql);
+                    if($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $custID = $row["custID"];
+                            $field2name = $row["name"];
+                            echo "<option value='$custID'>$field2name</option>";
+                        }
+                    }
+                    else {
+                        $err = $conn->errno; 
+                        echo "<p>MySQL error code $err </p>";
+                    }
+                ?>
+            <input type=submit name="submit" value="Confirm">
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
@@ -15,13 +33,15 @@
     while($clockedEmp = $res->fetch_assoc()) {
         $clockd = $clockedEmp['empID'];
     }
-    session_start(); 
+    session_start();
+    $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
           $priceQuery = "select itemPrice from MENU where itemID = $add";
           $priceRes = $conn->query($priceQuery);
-          $addQuery = "INSERT into ORDER (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceRes, date('Y-m-d H:i:s'), 0, $clockd, '$_POST[cust]')";
+          $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceRes, $now, 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
+          echo $priceQuery, $priceRes;
           $conn->query($addQuery);
         }
       }
@@ -64,24 +84,7 @@
     }
     echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
-<h2>Select your name: </h2>
-            <select name="cust">
-                <?php
-                    $sql = "SELECT * FROM CUSTOMER";
-                    $result = $conn->query($sql);
-                    if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $custID = $row["custID"];
-                            $field2name = $row["name"];
-                            echo "<option value='$custID'>$field2name</option>";
-                        }
-                    }
-                    else {
-                        $err = $conn->errno; 
-                        echo "<p>MySQL error code $err </p>";
-                    }
-                ?>
-            <input type=submit name="submit" value="Confirm">
+
         </form>
     </body>
 </html>
