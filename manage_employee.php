@@ -56,13 +56,13 @@
           <td>{$row['position']}</td>
           <td>$clocked</td>
           <td>
-            <button type='button' onclick=\"window.location.href = 'update_employee.php?empID={$row['empID']}'\">Edit</button>
+            <button type='button' class=\"small-button\" onclick=\"window.location.href = 'update_employee.php?empID={$row['empID']}'\">Edit</button>
           </td>
           <td><input type='checkbox' name='fire[]' value={$row['empID']}></td>
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" value="Fire selected"></td></tr></table></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class=\"small-button\" value="Fire selected"></td></tr></table></form>';
   } else {
     echo 'No employees :(';
   }

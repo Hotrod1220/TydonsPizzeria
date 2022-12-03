@@ -56,13 +56,13 @@
           <td>$vegan</td>
           <td>{$row['stock']}</td>
           <td>
-            <button type='button' onclick=\"window.location.href = 'update_menu.php?itemID={$row['itemID']}'\">Edit</button>
+            <button type='button' class=\"small-button\" onclick=\"window.location.href = 'update_menu.php?itemID={$row['itemID']}'\">Edit</button>
           </td>
           <td><input type='checkbox' name='fire[]' value={$row['itemID']}></td>
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" value="Delete selected"></td></tr></table></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class=\"small-button\" value="Delete selected"></td></tr></table></form>';
   } else {
     echo 'No menu :(';
   }
