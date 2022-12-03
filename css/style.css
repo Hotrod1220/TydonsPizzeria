@@ -57,10 +57,12 @@ header {
 /* Typography */
 h1 {
     font-size: 50px;
+    color: #FA9627;
 }
 
 h2 {
     font-size: 35px;
+    color: #FA9627;
 }
 
 h3 {
@@ -69,4 +71,9 @@ h3 {
 
 p {
     font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FA9627;
 }
