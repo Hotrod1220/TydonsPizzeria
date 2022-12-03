@@ -21,7 +21,9 @@
         foreach ($_POST['add'] as $add) {
           $priceQuery = "select itemPrice from MENU where itemID = $add";
           $priceRes = $conn->query($priceQuery);
-          $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceRes, $now, 0, $clockd, '$_POST[cust]')";
+          $pricePass = $priceRes->fetch_assoc();
+          $priceItem = $pricePass['itemPrice'];
+          $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceItem, $now, 0, $clockd, '$_POST[cust]')";
           echo $addQuery;
           echo $priceQuery, $priceRes;
           $conn->query($addQuery);
