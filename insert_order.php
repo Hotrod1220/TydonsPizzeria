@@ -1,6 +1,7 @@
 <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     session_start(); 
+    echo '<table>';
     $sql = "SELECT * FROM MENU";
     $result = $conn->query($sql);
     if($result->num_rows > 0) {
@@ -19,6 +20,7 @@
                   </tr> <br>';
         }
         echo "<h3>Order up!</h3>";
+        echo '</table>';
     }
     else {
         $err = $conn->errno; 
