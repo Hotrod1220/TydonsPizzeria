@@ -25,7 +25,7 @@ create table MENU
     stock int
 );
 
-create table ORDER
+create table `ORDER`
 (
     orderID int primary key auto_increment, 
     content varchar(100), 
@@ -33,17 +33,18 @@ create table ORDER
     price float, 
     orderTime int, 
     isComplete boolean, 
+    empID int,
+    custID int,
     foreign key (empID) references EMPLOYEE (empID)
     on delete set null on update set null,
     foreign key (custID) references CUSTOMER (custID)
     on delete cascade on update cascade
 );
 
-create table CONTAINS
-(
-    foreign key (itemID) references MENU (itemID)
-    on delete cascade on update cascade,
-    foreign key (orderID) references ORDER (orderID)
-    on delete cascade on update cascade,
-    quantity int --int? 
+create table CONTAINS (
+  quantity int,
+  itemID int,
+  orderID int,
+  foreign key (itemID) references MENU (itemID) on delete cascade on update cascade,
+  foreign key (orderID) references `ORDER` (orderID) on delete cascade on update cascade
 );
