@@ -21,7 +21,7 @@
     </head>
     <body>
         <h2>OOGA</h2>
-        <form action="view_order.php" method=post>
+        <form action="" method=post>
             <select name="cust">
                 <?php
                     $sql = "SELECT * FROM CUSTOMER";
@@ -37,13 +37,7 @@
                         $err = $conn->errno; 
                         echo "<p>MySQL error code $err </p>";
                     }
-                ?>
-            <input type=submit name="submit" value="Insert">
-        </form>    
-    </body>
-</html>
-
-<?php
+                    
     echo '<table> <tr> 
     <td> Item ID </td> 
     <td> Name </td> 
@@ -84,3 +78,7 @@
     exit();
 
 ?>
+            <input type=submit name="submit" value="Confirm">
+        </form>    
+    </body>
+</html>
