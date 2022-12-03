@@ -29,10 +29,6 @@
                 <th>Edit Employee?</th>
                 <th>Fire Employee?</th>
               </tr>
-            </table>  
-        </main>
-    </body>
-</html>
 
 <?php
   require_once '/home/hipt3660/config/mysql_config.php';
