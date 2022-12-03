@@ -42,6 +42,7 @@
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
+        // this button does not work :S
         echo '<tr><td><input type="submit" value="Add selected to Order" action="view_order.php"></td></tr></table>';
     }
     else {
@@ -57,7 +58,7 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h2>OOGA</h2>
+        <h2>Select your name: </h2>
         <form action="" method=post>
             <select name="cust">
                 <?php
