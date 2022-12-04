@@ -96,7 +96,7 @@
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Cancel selected orders"></td></tr></table></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Cancel selected orders"></td></tr></table></form>';
   } else {
     echo 'No orders :(';
   }
