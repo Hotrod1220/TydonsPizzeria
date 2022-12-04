@@ -38,7 +38,7 @@ header {
     color: #FA9627;
 }
 
-.grid-three {
+.grid-two {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

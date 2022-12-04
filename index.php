@@ -17,7 +17,7 @@
           </header>
           <main class="wrapper container">
               <h2 class="orange-text">Adminstrator Access</h2>
-              <div class="grid-three">
+              <div class="grid-two">
                   <div class="text-wrapper">
                       <h3>Menu Options</h3>
                       <a href="insert_menu.php" class="button">Insert Menu Item</a>
@@ -35,10 +35,12 @@
                   </div>
                   <div class="text-wrapper">
                       <h3>Order Options</h3>
-                      <a href="insert_order.php" class="button">Place an Order</a>
-                      <a href="view_order.php" class="button">View an Order</a>
-                      <a href="manage_orders.php" class="button">Manage an Order</a>
-                      <a href="update_orders.php" class="button">Update an Order</a>
+                      <div class="grid-two">
+                        <a href="insert_order.php" class="button">Place an Order</a>
+                        <a href="view_order.php" class="button">View an Order</a>
+                        <a href="manage_orders.php" class="button">Manage an Order</a>
+                        <a href="update_orders.php" class="button">Update an Order</a>
+                      </div>
                   </div>
                   <div class="text-wrapper">
                       <a href="update_website.php" class="button">DEV: update website page</a>
