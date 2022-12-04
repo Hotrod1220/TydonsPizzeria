@@ -54,6 +54,10 @@ header {
     background-color: #910E07;
 }
 
+.button:hover {
+    background-color: #700B06;
+}
+
 .small-button {
     margin: 0px 5px;
     padding: 3px 15px;
@@ -64,6 +68,10 @@ header {
     color: #FA9627;
     font-size: 16px;
     background-color: #910E07;
+}
+
+.small-button:hover {
+    background-color: #700B06;
 }
 
 table {
