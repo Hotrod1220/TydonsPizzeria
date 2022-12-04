@@ -25,11 +25,10 @@
             echo $priceQuery;
             $priceRes = $conn->query($priceQuery);
             echo $priceRes;
-            while($priceFetch = $priceRes->fetch_assoc()) {
-                echo $priceFetch;
-                $price = $priceFetch['itemPrice'];
-                echo $price;
-            }
+            $priceFetch = $priceRes->fetch_assoc();
+            echo $priceFetch;
+            $price = $priceFetch['itemPrice'];
+            echo $price;
             $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
             echo $addQuery;
             $conn->query($addQuery);
