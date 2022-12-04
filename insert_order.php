@@ -21,12 +21,11 @@
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-            $priceQuery = "SELECT itemPrice FROM MENU WHERE itemName = '$add'";
+            $priceQuery = "SELECT itemPrice FROM MENU WHERE MATCH (itemName) AGAINST ('$add' IN BOOLEAN MODE)";
             $priceRes = $conn->query($priceQuery);
             while($priceFetch = $priceRes->fetch_assoc()) {
                 $price = $priceFetch['itemPrice'];
             }
-            sleep(1);
             if (isset($price)) {
                 $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
                 echo $addQuery;
