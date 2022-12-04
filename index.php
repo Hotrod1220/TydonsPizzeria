@@ -15,7 +15,7 @@
                   <h1>Tydon\'s Pizzeria</h1>
               </div>
           </header>
-          <main class="wrapper container">
+          <main class="container">
               <h2 class="orange-text">Adminstrator Access</h2>
               <div class="grid-two">
                   <div class="text-wrapper">
