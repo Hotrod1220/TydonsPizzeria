@@ -21,7 +21,6 @@
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $field1name = $row["orderID"];
-            $field2name = $row["content"];
             $field3name = $row["status"];
             $field4name = $row["price"];
             $field5name = $row["orderTime"];
@@ -31,7 +30,6 @@
 
             echo '<tr> 
                     <td>'. $field1name.'</td> 
-                    <td>'. $field2name.'</td> 
                     <td>'. $field3name.'</td> 
                     <td>'. $field4name. '</td> 
                     <td>'. $field5name.'</td>
