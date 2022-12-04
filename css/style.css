@@ -84,6 +84,11 @@ td {
     border: 1px solid;
     border-color: #FA9627;
     padding: 3px 5px;
+    color: white;
+}
+
+.no-border {
+    border: none
 }
 
 /* Typography */

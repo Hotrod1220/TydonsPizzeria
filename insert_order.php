@@ -15,7 +15,7 @@
                 <h1><a href="index.php">Tydon's Pizzeria<a></h1>
             </div>
         </header>
-        <main class="container wrapper">
+        <main class="container">
         <form action="" method=post>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
@@ -78,9 +78,9 @@
                       <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name'></td>
                   </tr>";
         }
-        echo "<h3>Order up!</h3>";
+        echo "<h2 class=\"text-wrapper\">Order up!</h2>";
         // this button does work!
-        echo '<tr><td><input type="submit" class="small-button" value="Add selected to Order" action=""></td></tr></table>';
+        echo '<tr><td class="no-border"><input type="submit" class="small-button" value="Add selected to Order" action=""></td></tr></table>';
     }
     else {
         $err = $conn->errno; 

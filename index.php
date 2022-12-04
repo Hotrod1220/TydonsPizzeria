@@ -36,7 +36,7 @@
                   <div class="text-wrapper">
                       <h3>Order Options</h3>
                       <a href="insert_order.php" class="button">Place an Order</a>
-                      <a href="view_order.php" class="button">View an Order</a>
+                      <a href="view_order.php" class="button">View an Order</a><br>
                       <a href="manage_orders.php" class="button">Manage an Order</a>
                       <a href="update_orders.php" class="button">Update an Order</a>
                   </div>
