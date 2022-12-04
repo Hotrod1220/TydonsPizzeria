@@ -24,6 +24,7 @@
             $priceQuery = "SELECT itemPrice FROM MENU WHERE itemID = $_POST[add]";
             $priceRes = $conn->query($priceQuery);
             echo $priceRes;
+            $price = $priceRes->fetch_assoc();
 
             $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
             echo $addQuery;
