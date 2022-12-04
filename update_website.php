@@ -16,11 +16,9 @@
       <h2 class="text-wrapper">Press the button to update the website from github.</h2>
       
 <?php
-  echo '<div class="align-center">
-          <form method="post">
-            <input type="submit" class="big-button" style="font-size:50px" name="update" value="Update"/>
-          </form>
-        </div>';
+  echo '<form method="post">
+          <input type="submit" class="big-button" style="font-size:50px" name="update" value="Update"/>
+        </form>';
   if (array_key_exists('update', $_POST)) {
     echo 'Updating website...';
     $output = shell_exec('/home/hipt3660/update_website1 2>&1');
