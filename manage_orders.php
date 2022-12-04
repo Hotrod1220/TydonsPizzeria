@@ -33,6 +33,9 @@
 
 <?php
   require_once '/home/hipt3660/config/mysql_config.php';
+  date_default_timezone_set('America/Edmonton');
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
   if (isset($_POST['fire'])) {
     foreach ($_POST['fire'] as $fire) {
       $fireQuery = "delete from ORDERS where orderID = $fire";
@@ -66,6 +69,7 @@
             $field3name = "Invalid Order Status";
             break;
     }
+    $empResult = $conn->query("SELECT name from EMPLOYEE where empID = $row[empID]");
     if ($empResult && $empResult->num_rows > 0) {
         $field7name = $empResult->fetch_assoc()["name"];
     } else {
