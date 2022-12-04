@@ -21,7 +21,7 @@
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-            $priceQuery = 'SELECT itemPrice FROM MENU WHERE itemName = "$add"';
+            $priceQuery = "SELECT itemPrice FROM MENU WHERE itemName = '$add'";
             $priceRes = $conn->query($priceQuery);
             while($priceFetch = $priceRes->fetch_assoc()) {
                 $price = $priceFetch['itemPrice'];
