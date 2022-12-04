@@ -58,7 +58,8 @@
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Fire selected"></td></tr></table></form>';
+    echo '<tr><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border">
+    <td class="no-border"><input type="submit" class="small-button" value="Fire selected"></td></tr></table></form>';
   } else {
     echo 'No employees :(';
   }
