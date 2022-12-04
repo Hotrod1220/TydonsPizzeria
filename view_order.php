@@ -15,7 +15,7 @@
     <td> Customer </td>
     </tr>';
 
-    $sql = "SELECT * FROM `ORDER`";
+    $sql = "SELECT * FROM ORDERS";
     $result = $conn->query($sql);
     print_r($result);
     if($result->num_rows > 0) {

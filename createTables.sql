@@ -46,5 +46,5 @@ create table CONTAINS (
   itemID int,
   orderID int,
   foreign key (itemID) references MENU (itemID) on delete cascade on update cascade,
-  foreign key (orderID) references `ORDER` (orderID) on delete cascade on update cascade
+  foreign key (orderID) references ORDERS (orderID) on delete cascade on update cascade
 );
