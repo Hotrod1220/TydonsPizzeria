@@ -31,7 +31,6 @@
         }
         $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values ('Received', $price, $now, 0, $clockd, $_POST[cust])";
         $conn->query($addQuery);
-        echo $conn->error;
         $idQuery = "SELECT LAST_INSERT_ID() as `orderID`";
         $idResult = $conn->query($idQuery);
         if ($idResult->num_rows > 0) {
@@ -66,7 +65,7 @@
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
-                      <td><input type='checkbox' name='add[]' value={$row['itemID']}></td>
+                      <td><input type='number' name='add[$row['itemID']]'></td>
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
