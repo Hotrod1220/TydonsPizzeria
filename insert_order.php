@@ -48,7 +48,7 @@
     <td> Price </td> 
     <td> Vegan </td> 
     <td> Stock </td> 
-    <td> Add to Order </td>
+    <td> Quantity </td>
     </tr>';
     $sql = "SELECT * FROM MENU";
     $result = $conn->query($sql);
@@ -66,7 +66,7 @@
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
-                      <td><input type='number' name='add[$row[itemID]]' min='0'></td>
+                      <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name'></td>
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
