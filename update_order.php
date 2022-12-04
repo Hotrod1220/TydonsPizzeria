@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['empID'])) {
+if (isset($_POST['orderID'])) {
   // posted a change, update table
   require_once '/home/hipt3660/config/mysql_config.php';
   date_default_timezone_set('America/Edmonton');
@@ -23,9 +23,9 @@ if (isset($_POST['empID'])) {
   } catch (Exception $e) {
     echo $e->getMessage();
   }
-} else if (!isset($_GET['empID'])) {
+} else if (!isset($_GET['orderID'])) {
   // No empID in URL parameters, redirect back to employee management.
-  header('Location: manage_employee.php');
+  header('Location: manage_orders.php');
   exit();
 }
 ?>
