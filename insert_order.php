@@ -18,7 +18,7 @@
     while($clockedEmp = $res->fetch_assoc()) {
         $clockd = $clockedEmp['empID'];
     }
-    $now = date('Y-m-d H:i:s'); 
+    $now = time();
     if (isset($_POST['add'])) {
         $price = 0;
         foreach ($_POST['add'] as $add) {
@@ -29,9 +29,10 @@
                 $price += $priceFetch['itemPrice'];
             }
         }
-        $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values (received, $price, $now, 0, $clockd, '$_POST[cust]')";
+        $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values ('Received', $price, $now, 0, $clockd, $_POST[cust])";
         $conn->query($addQuery);
-        $idQuery = "SELECT LAST_INSERT_ID()";
+        echo $conn->error;
+        $idQuery = "SELECT LAST_INSERT_ID() as `orderID`";
         $idResult = $conn->query($idQuery);
         if ($idResult->num_rows > 0) {
             $orderID = $idResult->fetch_assoc()["orderID"];
@@ -42,8 +43,7 @@
         }
 
       }
-    echo '<table> <tr> 
-    <td> Item ID </td> 
+    echo '<table> <tr>
     <td> Name </td> 
     <td> Price </td> 
     <td> Vegan </td> 
