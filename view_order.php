@@ -16,16 +16,34 @@
 
     $sql = "SELECT * FROM ORDERS";
     $result = $conn->query($sql);
-    print_r($result);
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $field1name = $row["orderID"];
-            $field3name = $row["status"];
+            switch ($row["status"]) {
+                case 0:
+                    $field3name = "Received";
+                    break;
+                case 1:
+                    $field3name = "Preparing";
+                    break;
+                case 2:
+                    $field3name = "Baking";
+                    break;
+                case 3:
+                    $field3name = "Quality Check";
+                    break;
+                case 4:
+                    $field3name = "Ready for Pickup";
+                    break;
+                default:
+                    $field3name = "Invalid Order Status";
+                    break;
+            }
             $field4name = $row["price"];
-            $field5name = $row["orderTime"];
+            $field5name = date('Y-m-d H:i:s', $row["orderTime"]);
             $field6name = ($row["isComplete"] == 0 ? 'No' : 'Yes');
-            $field7name = $row["empID"];
-            $field8name = $row["custID"];
+            $field7name = $conn->query("SELECT name from EMPLOYEE where empID = $row['empID']")->fetch_assoc()["name"];
+            $field8name = $conn->query("SELECT name from CUSTOMER where custID = $row['custID']")->fetch_assoc()["name"];
 
             echo '<tr> 
                     <td>'. $field1name.'</td> 

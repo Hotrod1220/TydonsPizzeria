@@ -28,7 +28,7 @@ create table MENU
 create table ORDERS
 (
     orderID int primary key auto_increment, 
-    status varchar(50), 
+    status int,
     price float, 
     orderTime int, 
     isComplete boolean, 
