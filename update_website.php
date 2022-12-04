@@ -16,9 +16,9 @@
       <h2 class="text-wrapper">Press the button to update the website from github.</h2>
       
 <?php
-  echo '<div align-center>
+  echo '<div class="align-center">
           <form method="post">
-            <input type="submit" class=\"big-button\" name="update" value="Update"/>
+            <input type="submit" class="big-button" style="font-size:50px" name="update" value="Update"/>
           </form>
         </div>';
   if (array_key_exists('update', $_POST)) {
