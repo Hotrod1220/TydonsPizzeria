@@ -28,8 +28,8 @@
             }
             if (isset($price)) {
                 $addQuery = "INSERT into ORDERS (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, $_POST[cust])";
-                echo $addQuery;
                 $conn->query($addQuery);
+                echo $addQuery;
             }
         }
       }
