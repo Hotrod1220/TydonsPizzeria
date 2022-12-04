@@ -21,12 +21,11 @@
     $now = time();
     if (isset($_POST['add'])) {
         $price = 0;
-        foreach ($_POST['add'] as $add) {
+        foreach ($_POST['add'] as $add => $quantity) {
             $priceQuery = "SELECT itemPrice FROM MENU WHERE itemID = '$add'";
             $priceRes = $conn->query($priceQuery);
             while($priceFetch = $priceRes->fetch_assoc()) {
-                // * quantity
-                $price += $priceFetch['itemPrice'];
+                $price += $priceFetch['itemPrice'] * $quantity;
             }
         }
         $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values ('Received', $price, $now, 0, $clockd, $_POST[cust])";
@@ -65,7 +64,7 @@
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
-                      <td><input type='number' name='add[$row['itemID']]'></td>
+                      <td><input type='number' name='add[$row[itemID]]'></td>
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
