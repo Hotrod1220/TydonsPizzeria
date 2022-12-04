@@ -6,7 +6,6 @@
 
     echo '<br><table> <tr> 
     <td> Order ID </td> 
-    <td> Content </td> 
     <td> Status </td> 
     <td> Price </td> 
     <td> Order Time </td> 
