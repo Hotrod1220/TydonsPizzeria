@@ -23,8 +23,11 @@
         foreach ($_POST['add'] as $add) {
             $priceQuery = "SELECT itemPrice FROM MENU WHERE itemName = $add";
             $priceRes = $conn->query($priceQuery);
-            echo $priceRes;
-            $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $priceRes, $now, 0, $clockd, '$_POST[cust]')";
+            while($priceFetch = $priceRes->fetch_assoc()) {
+                $price = $priceFetch['itemPrice'];
+            }
+            echo $price;
+            $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
             echo $addQuery;
             $conn->query($addQuery);
         }
