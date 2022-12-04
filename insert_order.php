@@ -34,8 +34,8 @@
         $idResult = $conn->query($idQuery);
         if ($idResult->num_rows > 0) {
             $orderID = $idResult->fetch_assoc()["orderID"];
-            foreach ($_POST['add'] as $add) {
-                $containsQuery = "INSERT into CONTAINS values (1, $add, $orderID)";
+            foreach ($_POST['add'] as $add => $quantity) {
+                $containsQuery = "INSERT into CONTAINS values ($quantity, $add, $orderID)";
                 $conn->query($containsQuery);
             }
         }
