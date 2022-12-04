@@ -44,7 +44,6 @@
 
   if ($employees->num_rows != 0) {
     while ($row = $employees->fetch_assoc()) {
-      $clocked = ($row['isComplete'] == 0 ? 'No' : 'Yes');
       switch ($row["status"]) {
         case 0:
             $field3name = "Received";
@@ -82,7 +81,6 @@
           <td>{$field3name}</td>
           <td>\${$row['price']}/hr</td>
           <td>{$field5name}</td>
-          <td>$clocked</td>
           <td>{$field7name}</td>
           <td>{$field8name}</td>
           <td>
@@ -92,7 +90,7 @@
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Fire selected"></td></tr></table></form>';
+    echo '<tr><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Cancel selected orders"></td></tr></table></form>';
   } else {
     echo 'No orders :(';
   }
