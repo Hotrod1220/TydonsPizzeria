@@ -63,7 +63,7 @@
                     <td>'. $field6name.'</td> 
                     <td>'. $field7name.'</td>
                     <td>'. $field8name.'</td>
-                </tr> <br>';
+                </tr>';
         }
         echo "<h3>Order up!</h3>";
         echo '</table>';
