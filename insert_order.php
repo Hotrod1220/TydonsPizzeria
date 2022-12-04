@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tydon's Pizzeria - Place an Order</title>
+        <meta charset="UTF-8">
+        <title>Tydon\'s Pizzeria</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -67,17 +71,16 @@
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
                       <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name'></td>
-                  </tr> <br>";
+                  </tr>";
         }
         echo "<h3>Order up!</h3>";
         // this button does work!
-        echo '<tr><td><input type="submit" value="Add selected to Order" action=""></td></tr></table>';
+        echo '<tr><td><input type="submit" class="small-button" value="Add selected to Order" action=""></td></tr></table>';
     }
     else {
         $err = $conn->errno; 
         echo "<p>MySQL error code $err </p>";
     }
-    echo "<br> <br> <a href=\"index.php\">Return</a> to Home Page.";
 ?>
 <h2>Select your name: </h2>
             <select name="cust">
@@ -97,6 +100,7 @@
                     }
                 ?>
         </form>
+        <a href="index.php" class="button">Return Home</a>
     </body>
 </html>
 

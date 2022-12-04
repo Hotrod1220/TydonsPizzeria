@@ -44,7 +44,7 @@ header {
 }
 
 .button {
-    margin: 0px 5px;
+    margin: 10px 5px;
     padding: 15px 30px;
     display: inline-block;
     font-weight: bold;
