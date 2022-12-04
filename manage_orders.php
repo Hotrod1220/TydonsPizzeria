@@ -18,7 +18,6 @@
             <div class="text-wrapper">
               <h1>Order Management</h1>
             </div>
-            <a href="index.php" class="button">Return Home.</a>
             <form action='' method='post'>
             <table class="text-wrapper">
               <tr>
@@ -96,8 +95,11 @@
         </tr>"
       ;
     }
-    echo '<tr><td/><td/><td/><td/><td/><td/><td><input type="submit" class="small-button" value="Cancel selected orders"></td></tr></table></form>';
+    echo '<tr><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td class="no-border">
+    <input type="submit" class="small-button" value="Cancel selected orders"></td></tr></table></form>';
   } else {
     echo 'No orders :(';
   }
 ?>
+<a href="index.php" class="button">Return Home.</a>
+</main>
