@@ -90,7 +90,7 @@
           <td>{$field7name}</td>
           <td>{$field8name}</td>
           <td>
-            <button type='button' class=\"small-button\" onclick=\"window.location.href = 'update_order.php?empID={$row['orderID']}'\">Edit</button>
+            <button type='button' class=\"small-button\" onclick=\"window.location.href = 'update_order.php?orderID={$row['orderID']}'\">Edit</button>
           </td>
           <td><input type='checkbox' name='fire[]' value={$row['orderID']}></td>
         </tr>"
