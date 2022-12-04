@@ -4,7 +4,7 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    echo '<table> <tr> 
+    echo '<br><table> <tr> 
     <td> Order ID </td> 
     <td> Content </td> 
     <td> Status </td> 
@@ -13,7 +13,7 @@
     <td> Order Complete </td>
     <td> Assigned Employee </td>
     <td> Customer </td>
-</tr>';
+    </tr>';
 
     $sql = "SELECT * FROM `ORDER`";
     $result = $conn->query($sql);
