@@ -24,14 +24,10 @@
             $priceQuery = "SELECT itemPrice FROM MENU WHERE itemID = $_POST[add]";
             $priceRes = $conn->query($priceQuery);
             echo $priceRes;
-            //while ($pricePass = $priceRes->fetch_assoc()) {
-            //    $price = $pricePass['itemPrice'];
-            //    echo $price;
-            //    echo $pricePass;
-            //}
-            // $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
-            // echo $addQuery;
-            // $conn->query($addQuery);
+
+            $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
+            echo $addQuery;
+            $conn->query($addQuery);
         }
       }
     echo '<table> <tr> 
