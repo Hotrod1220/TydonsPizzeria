@@ -25,7 +25,7 @@ create table MENU
     stock int
 );
 
-create table `ORDER`
+create table ORDERS
 (
     orderID int primary key auto_increment, 
     content varchar(100), 
