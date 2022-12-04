@@ -20,18 +20,27 @@
     }
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
+        $price = 0;
         foreach ($_POST['add'] as $add) {
-            $priceQuery = "SELECT itemPrice FROM MENU WHERE itemName = '$add'";
+            $priceQuery = "SELECT itemPrice FROM MENU WHERE itemID = '$add'";
             $priceRes = $conn->query($priceQuery);
             while($priceFetch = $priceRes->fetch_assoc()) {
-                $price = $priceFetch['itemPrice'];
-            }
-            if (isset($price)) {
-                $addQuery = "INSERT into ORDERS (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, $_POST[cust])";
-                $conn->query($addQuery);
-                echo $addQuery;
+                // * quantity
+                $price += $priceFetch['itemPrice'];
             }
         }
+        $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values (received, $price, $now, 0, $clockd, '$_POST[cust]')";
+        $conn->query($addQuery);
+        $idQuery = "SELECT LAST_INSERT_ID()";
+        $idResult = $conn->query($idQuery);
+        if ($idResult->num_rows > 0) {
+            $orderID = $idResult->fetch_assoc()["orderID"];
+            foreach ($_POST['add'] as $add) {
+                $containsQuery = "INSERT into CONTAINS values (1, $add, $orderID)";
+                $conn->query($containsQuery);
+            }
+        }
+
       }
     echo '<table> <tr> 
     <td> Item ID </td> 
@@ -45,7 +54,6 @@
     $result = $conn->query($sql);
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $field1name = $row["itemID"];
             $field2name = $row["itemName"];
             $field3name = $row["itemPrice"];
             $field4name = $row["isVegan"];
@@ -54,12 +62,11 @@
             $vegan = ($field4name == 0 ? 'No' : 'Yes');
 
             echo '<tr> 
-                      <td>'. $field1name.'</td> 
                       <td>'. $field2name.'</td> 
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
-                      <td><input type='checkbox' name='add[]' value={$row['itemName']}></td>
+                      <td><input type='checkbox' name='add[]' value={$row['itemID']}></td>
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
