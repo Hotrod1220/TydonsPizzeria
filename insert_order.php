@@ -64,7 +64,7 @@
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
-                      <td><input type='number' name='add[$row[itemID]]'></td>
+                      <td><input type='number' name='add[$row[itemID]]' min='0'></td>
                   </tr> <br>";
         }
         echo "<h3>Order up!</h3>";
