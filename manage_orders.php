@@ -27,6 +27,8 @@
                 <th>Order Time</th>
                 <th>Employee Assigned</th>
                 <th>Customer Name</th>
+                <th>Edit Order?</th>
+                <th>Cancel Order?</th>
               </tr>
 
 <?php
@@ -79,7 +81,7 @@
       echo 
         "<tr>
           <td>{$field3name}</td>
-          <td>\${$row['price']}/hr</td>
+          <td>\${$row['price']}</td>
           <td>{$field5name}</td>
           <td>{$field7name}</td>
           <td>{$field8name}</td>
