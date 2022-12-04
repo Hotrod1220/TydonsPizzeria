@@ -26,7 +26,7 @@
             while($priceFetch = $priceRes->fetch_assoc()) {
                 $price = $priceFetch['itemPrice'];
             }
-            if ($price) {
+            if (isset($price)) {
                 $addQuery = "INSERT into `ORDER` (content, status, price, orderTime, isComplete, empID, custID) values ($add, received, $price, $now, 0, $clockd, '$_POST[cust]')";
                 echo $addQuery;
                 $conn->query($addQuery);
