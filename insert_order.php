@@ -21,7 +21,7 @@
     $now = date('Y-m-d H:i:s'); 
     if (isset($_POST['add'])) {
         foreach ($_POST['add'] as $add) {
-            $priceQuery = "SELECT itemPrice FROM MENU WHERE MATCH (itemName) AGAINST ('$add' IN BOOLEAN MODE)";
+            $priceQuery = 'SELECT itemPrice FROM MENU WHERE MATCH (itemName) AGAINST ("$add" IN BOOLEAN MODE)';
             $priceRes = $conn->query($priceQuery);
             while($priceFetch = $priceRes->fetch_assoc()) {
                 $price = $priceFetch['itemPrice'];
