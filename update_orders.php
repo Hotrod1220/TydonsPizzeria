@@ -46,7 +46,7 @@ if (isset($_POST['orderID'])) {
                 <h1><a href="index.php">Tydon's Pizzeria<a></h1>
             </div>
         </header>
-  <div class="container wrapper">
+  <div class="container">
     <?php
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from ORDERS where orderID = {$_GET['orderID']}";
