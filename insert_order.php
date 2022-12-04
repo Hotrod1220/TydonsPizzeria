@@ -10,7 +10,12 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        
+        <header class="wrapper">
+            <div class="container orange-text">
+                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
+            </div>
+        </header>
+        <main class="container wrapper">
         <form action="" method=post>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
@@ -101,6 +106,7 @@
                 ?>
         </form>
         <a href="index.php" class="button">Return Home</a>
+        </main>
     </body>
 </html>
 
