@@ -40,16 +40,16 @@
                     break;
             }
             $field4name = $row["price"];
-            $field5name = date('Y-m-d H:i:s', $row["orderTime"]);
+            $field5name = date('Y-m-d H:i', $row["orderTime"]);
             $field6name = ($row["isComplete"] == 0 ? 'No' : 'Yes');
             $empResult = $conn->query("SELECT name from EMPLOYEE where empID = $row[empID]");
-            if ($empResult->num_rows > 0) {
+            if ($empResult && $empResult->num_rows > 0) {
                 $field7name = $empResult->fetch_assoc()["name"];
             } else {
                 $field7name = "Employee Not Found";
             }
             $custResult = $conn->query("SELECT name from CUSTOMER where custID = $row[custID]");
-            if ($custResult->num_rows > 0) {
+            if ($custResult && $custResult->num_rows > 0) {
                 $field8name = $custResult->fetch_assoc()["name"];
             } else {
                 $field8name = "Customer Not Found";
