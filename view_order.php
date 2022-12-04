@@ -82,7 +82,7 @@
                     <td>'. $field8name.'</td>
                 </tr>';
         }
-        echo "<h3>Order up!</h3>";
+        echo "<h2 class=\"text-wrapper\">Order up!</h2>";
         echo '</table>';
     }
     else {
