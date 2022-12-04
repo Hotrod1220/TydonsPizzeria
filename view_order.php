@@ -42,8 +42,8 @@
             $field4name = $row["price"];
             $field5name = date('Y-m-d H:i:s', $row["orderTime"]);
             $field6name = ($row["isComplete"] == 0 ? 'No' : 'Yes');
-            $field7name = $conn->query("SELECT name from EMPLOYEE where empID = $row['empID']")->fetch_assoc()["name"];
-            $field8name = $conn->query("SELECT name from CUSTOMER where custID = $row['custID']")->fetch_assoc()["name"];
+            $field7name = $conn->query("SELECT name from EMPLOYEE where empID = $row[empID]")->fetch_assoc()["name"];
+            $field8name = $conn->query("SELECT name from CUSTOMER where custID = $row[custID]")->fetch_assoc()["name"];
 
             echo '<tr> 
                     <td>'. $field1name.'</td> 
