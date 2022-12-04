@@ -15,7 +15,7 @@
     <td> Customer </td>
 </tr>';
 
-    $sql = "SELECT * FROM ORDER";
+    $sql = "SELECT * FROM `ORDER`";
     $result = $conn->query($sql);
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
