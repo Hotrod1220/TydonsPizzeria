@@ -35,9 +35,9 @@ create table ORDERS
     empID int,
     custID int,
     foreign key (empID) references EMPLOYEE (empID)
-    on delete set null on update set null,
+    on delete set null on update cascade,
     foreign key (custID) references CUSTOMER (custID)
-    on delete cascade on update cascade
+    on delete set null on update cascade
 );
 
 create table CONTAINS (
