@@ -22,6 +22,7 @@
     if (isset($_POST['add'])) {
         $price = 0;
         foreach ($_POST['add'] as $add => $quantity) {
+            if (!$quantity) { continue; }
             $priceQuery = "SELECT itemPrice FROM MENU WHERE itemID = '$add'";
             $priceRes = $conn->query($priceQuery);
             while($priceFetch = $priceRes->fetch_assoc()) {
@@ -35,6 +36,7 @@
         if ($idResult->num_rows > 0) {
             $orderID = $idResult->fetch_assoc()["orderID"];
             foreach ($_POST['add'] as $add => $quantity) {
+                if (!$quantity) { continue; }
                 $containsQuery = "INSERT into CONTAINS values ($quantity, $add, $orderID)";
                 $conn->query($containsQuery);
             }
