@@ -97,7 +97,7 @@ if (isset($_POST['orderID'])) {
             echo $e->getMessage();
           }
         $itemname = $resiname->fetch_assoc();
-        echo "<h2>Update Information for {$order['orderID']}</h2>";
+        echo "<h2>Update Information for Order {$order['orderID']}</h2>";
         echo "<form action='' method='post'>";
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
         echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
@@ -140,7 +140,7 @@ if (isset($_POST['orderID'])) {
           echo "<input type=checkbox name='isComplete'><br><br>";
         }
         echo "<input type=hidden name='orderID' value='{$_GET['orderID']}'>";
-        echo "<td class='no-border'><input type='submit' class='small-button' value='Confirm changes to order {$_GET['orderID']}' action=''> </table> </form>";
+        echo "<td class='no-border'><input type='submit' class='small-button' value='Confirm changes to Order {$_GET['orderID']}' action=''> </table> </form>";
       } else {
         echo "No order with ID of {$_GET['orderID']} exists.";
       }
