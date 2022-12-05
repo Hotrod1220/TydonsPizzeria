@@ -117,7 +117,7 @@ if (isset($_POST['orderID'])) {
                       <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name' value='$rowq[quantity]'></td>
                   </tr>";
         }}
-        echo "On Shift?:";
+        echo "Order Completed?: ";
         if ($order['isComplete']) {
           echo "<input type=checkbox name='isComplete' checked><br><br>";
         } else {
