@@ -11,7 +11,7 @@ if (isset($_POST['orderID'])) {
   }
 
   $sql = "update ORDERS set status = '{$_POST['status']}',
-    position = '{$_POST['position']}',
+    isComplete = '{$_POST['isComplete']}',
     empID = $employeeID,
     where orderID = {$_POST['orderID']};"
   ;
@@ -81,12 +81,12 @@ if (isset($_POST['orderID'])) {
         echo "Employee ID: <input type=text name='wage' value={$order['empID']} size=6><br><br>";
         echo "Item: <input type=text name='position' value='{$itemname}' size=15><br><br>";
         echo "On Shift?:";
-        if ($order['clockedIn']) {
-          echo "<input type=checkbox name='clockedIn' checked><br><br>";
+        if ($order['isComplete']) {
+          echo "<input type=checkbox name='isComplete' checked><br><br>";
         } else {
-          echo "<input type=checkbox name='clockedIn'><br><br>";
+          echo "<input type=checkbox name='isComplete'><br><br>";
         }
-        echo "<input type=hidden name='empID' value='{$_GET['empID']}'>";
+        echo "<input type=hidden name='orderID' value='{$_GET['orderID']}'>";
         echo "<input type=submit class='small-button' name='submit' value='Update'>";
         echo "</form>";
       } else {
