@@ -32,8 +32,8 @@ if (isset($_POST['empID'])) {
   ;
   try {
     $conn->query($sql);
-    echo "Information for {$_POST['name']} updated successfully.<br><br>";
-    echo "<a href=\"manage_employee.php\">Return</a> to Employee Management.";
+    echo "<h1 class=\"text-wrapper\">Information for {$_POST['name']} updated successfully.</h1><br><br>";
+    echo "<a href=\"manage_employee.php\" class=\"button\">Return to Employee Management.</a>";
     exit();
   } catch (Exception $e) {
     echo $e->getMessage();
