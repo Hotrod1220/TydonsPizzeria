@@ -9,7 +9,23 @@ if (isset($_POST['orderID'])) {
   if (isset($_POST['clockedIn'])) {
     $clockedIn = 1;
   }
+  // for each? or just one?
+  if(isset($quantity)) {
+    if ($_POST['oldQuant']) {
+      if (!$quantity) {
+        // delete this contains row
+        $sql1 = "DELETE FROM CONTAINS WHERE orderID = $_POST[orderID] AND itemID = $_POST[itemID]";
 
+      } else {
+        // update this contains row's quantity
+
+
+      }
+    } else if ($quantity) {
+      // insert new contains row using orderID
+
+    }
+  }
   $sql = "update ORDERS set status = '{$_POST['status']}',
     isComplete = '{$_POST['isComplete']}',
     empID = $employeeID,
@@ -81,7 +97,7 @@ if (isset($_POST['orderID'])) {
             echo $e->getMessage();
           }
         $itemname = $resiname->fetch_assoc();
-        echo "<h2>Update Information for {$order['orderID']}</h2>";
+        echo "<h2>Update Information for Order {$order['orderID']}</h2>";
         echo "<form action='' method='post'>";
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
         echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
@@ -124,8 +140,7 @@ if (isset($_POST['orderID'])) {
           echo "<input type=checkbox name='isComplete'><br><br>";
         }
         echo "<input type=hidden name='orderID' value='{$_GET['orderID']}'>";
-        echo "<input type=submit class='small-button' name='submit' value='Update'>";
-        echo "</form> </table>";
+        echo "<td class='no-border'><input type='submit' class='small-button' value='Confirm changes to Order {$_GET['orderID']}' action=''> </table> </form>";
       } else {
         echo "No order with ID of {$_GET['orderID']} exists.";
       }
