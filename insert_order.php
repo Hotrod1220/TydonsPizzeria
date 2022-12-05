@@ -40,7 +40,7 @@
         }
         if (!(isset($clocked))) {
             echo "There are no employees clocked in, please place your order during business hours.";
-            echo "<a href=index.php> Return to the home page.</a>";
+            echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
             exit();
         }
         $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values ('Received', $price, $now, 0, $clockd, $_POST[cust])";
