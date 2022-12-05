@@ -104,12 +104,17 @@ if (isset($_POST['orderID'])) {
 
             $vegan = ($field4name == 0 ? 'No' : 'Yes');
 
+            // display quantity for item in that row where itemID = itemID
+            $sqlq = "SELECT quantity FROM CONTAINS WHERE itemID = {$row['itemID']} AND orderID = {$_GET['orderID']}";
+            $resultq = $conn->query($sqlq);
+            $rowq = $resultq->fetch_assoc();
+
             echo '<tr> 
                       <td>'. $field2name.'</td> 
                       <td>'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
-                      <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name' value='$contains[quantity]'></td>
+                      <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name' value='$rowq[quantity]'></td>
                   </tr>";
         }}
         echo "On Shift?:";
