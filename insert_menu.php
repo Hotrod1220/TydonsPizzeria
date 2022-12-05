@@ -32,7 +32,7 @@ if (isset($_POST['itemName'])) {
                 <h1><a href="index.php">Tydon's Pizzeria<a></h1>
             </div>
         </header>
-        <main class="container wrapper">
+        <main class="container">
             <h2 class="orange-text">Add a New Menu Item</h2>
             <form action="" method=post>
                 Name: <input type=text name="itemName" size=20><br><br>
