@@ -86,6 +86,13 @@ if (isset($_POST['orderID'])) {
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
         echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
         echo "Item: ";
+        echo '<table> <tr>
+    <td> Name </td> 
+    <td> Price </td> 
+    <td> Vegan </td> 
+    <td> Stock </td> 
+    <td> Quantity </td>
+    </tr>';
         $sql = "SELECT * FROM MENU";
         $result = $conn->query($sql);
       if($result->num_rows > 0) {
