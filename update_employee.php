@@ -14,7 +14,7 @@
                 <h1><a href="index.php">Tydon's Pizzeria<a></h1>
             </div>
         </header>
-  <div class="container wrapper">
+  <div class="container">
 <?php
 if (isset($_POST['empID'])) {
   // posted a change, update table

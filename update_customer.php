@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tydon's Pizzeria - Update Employee</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+  <header class="wrapper">
+            <div class="container orange-text">
+                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
+            </div>
+        </header>
+
 <?php
 if (isset($_POST['custID'])) {
   // posted a change, update table
@@ -24,23 +41,7 @@ if (isset($_POST['custID'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Tydon's Pizzeria - Update Customer</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-  <body>
-  <header class="wrapper">
-            <div class="container orange-text">
-                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
-            </div>
-        </header>
-  <div class="container wrapper">
+  <div class="container">
     <?php
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from CUSTOMER where custID = {$_GET['custID']}";
