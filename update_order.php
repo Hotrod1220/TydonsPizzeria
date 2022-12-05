@@ -51,6 +51,12 @@ if (isset($_POST['orderID'])) {
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from ORDERS where orderID = {$_GET['orderID']}";
       $sqlc = "select * from CONTAINS where orderID = {$_GET['orderID']}";
+
+      foreach ($_POST['add'] as $add => $quantity) {
+        if (!$quantity) { continue; }
+        $containsQuery = "INSERT into CONTAINS values ($quantity, $add, $orderID)";
+        $conn->query($containsQuery);
+    }
       
       try {
         $result = $conn->query($sql);
@@ -79,7 +85,26 @@ if (isset($_POST['orderID'])) {
         echo "<form action='' method='post'>";
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
         echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
-        echo "Item: <input type=text name='itemName' value='{$itemname}' size=15><br><br>";
+        echo "Item: ";
+        $sql = "SELECT * FROM MENU";
+        $result = $conn->query($sql);
+      if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $field2name = $row["itemName"];
+            $field3name = $row["itemPrice"];
+            $field4name = $row["isVegan"];
+            $field5name = $row["stock"];
+
+            $vegan = ($field4name == 0 ? 'No' : 'Yes');
+
+            echo '<tr> 
+                      <td>'. $field2name.'</td> 
+                      <td>'. $field3name.'</td> 
+                      <td>'. $vegan. '</td> 
+                      <td>'. $field5name."</td> 
+                      <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name' value='$contains[quantity]'></td>
+                  </tr>";
+        }}
         echo "On Shift?:";
         if ($order['isComplete']) {
           echo "<input type=checkbox name='isComplete' checked><br><br>";
