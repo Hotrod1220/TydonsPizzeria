@@ -44,10 +44,6 @@ if (isset($_POST['empID'])) {
   exit();
 }
 
-
-
-  
-
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from EMPLOYEE where empID = {$_GET['empID']}";
       

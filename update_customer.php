@@ -14,6 +14,7 @@
                 <h1><a href="index.php">Tydon's Pizzeria<a></h1>
             </div>
         </header>
+        <div class="container">
 
 <?php
 if (isset($_POST['custID'])) {
@@ -39,10 +40,7 @@ if (isset($_POST['custID'])) {
   header('Location: manage_customer.php');
   exit();
 }
-?>
 
-  <div class="container">
-    <?php
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from CUSTOMER where custID = {$_GET['custID']}";
       
