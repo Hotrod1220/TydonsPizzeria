@@ -24,7 +24,7 @@ if (isset($_POST['orderID'])) {
     echo $e->getMessage();
   }
 } else if (!isset($_GET['orderID'])) {
-  // No empID in URL parameters, redirect back to employee management.
+  // No orderID in URL parameters, redirect back to employee management.
   header('Location: manage_orders.php');
   exit();
 }

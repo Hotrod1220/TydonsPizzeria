@@ -38,6 +38,9 @@
                 $price += $priceFetch['itemPrice'] * $quantity;
             }
         }
+        if (!(isset($clocked))) {
+            echo "There are no employees clocked in, please place your order during business hours.";
+        }
         $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values ('Received', $price, $now, 0, $clockd, $_POST[cust])";
         $conn->query($addQuery);
         $idQuery = "SELECT LAST_INSERT_ID() as `orderID`";
@@ -50,8 +53,7 @@
                 $conn->query($containsQuery);
             }
         }
-
-      }
+    }
     echo '<table> <tr>
     <td> Name </td> 
     <td> Price </td> 
@@ -109,7 +111,3 @@
         </main>
     </body>
 </html>
-
-    
-
-         
