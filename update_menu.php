@@ -33,7 +33,7 @@ if (isset($_POST['itemID'])) {
   ;
   try {
     $conn->query($sql);
-    echo "<h1 class=\"text-wrapper\">Information for {$_POST['itemName']} updated successfully.</h1><br><br>";
+    echo "<h2 class=\"text-wrapper\">Information for {$_POST['itemName']} updated successfully.</h2><br><br>";
     echo "<a href=\"manage_menu.php\" class=\"button\">Return to Menu Management.</a>";
     exit();
   } catch (Exception $e) {
