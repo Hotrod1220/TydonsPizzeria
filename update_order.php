@@ -85,7 +85,6 @@ if (isset($_POST['orderID'])) {
         echo "<form action='' method='post'>";
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
         echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
-        echo "Item: ";
         echo '<table> <tr>
     <td> Name </td> 
     <td> Price </td> 
@@ -126,7 +125,7 @@ if (isset($_POST['orderID'])) {
         }
         echo "<input type=hidden name='orderID' value='{$_GET['orderID']}'>";
         echo "<input type=submit class='small-button' name='submit' value='Update'>";
-        echo "</form>";
+        echo "</form> </table>";
       } else {
         echo "No order with ID of {$_GET['orderID']} exists.";
       }
