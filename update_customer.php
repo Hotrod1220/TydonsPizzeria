@@ -28,7 +28,7 @@ if (isset($_POST['custID'])) {
   ;
   try {
     $conn->query($sql);
-    echo "<h2 class=\"text-wrapper\"> Information for {$_POST['name']} updated successfully.</h2><br><br>";
+    echo "<h2 class=\"text-wrapper\"> Information for {$_POST['name']} updated successfully.</h2>";
     echo "<a href=\"manage_customer.php\" class=\"button\">Return to Customer Management.</a>";
     exit();
   } catch (Exception $e) {
