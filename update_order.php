@@ -78,8 +78,8 @@ if (isset($_POST['orderID'])) {
         echo "<h2>Update Information for {$order['orderID']}</h2>";
         echo "<form action='' method='post'>";
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
-        echo "Employee ID: <input type=text name='wage' value={$order['empID']} size=6><br><br>";
-        echo "Item: <input type=text name='position' value='{$itemname}' size=15><br><br>";
+        echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
+        echo "Item: <input type=text name='itemName' value='{$itemname}' size=15><br><br>";
         echo "On Shift?:";
         if ($order['isComplete']) {
           echo "<input type=checkbox name='isComplete' checked><br><br>";
