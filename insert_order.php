@@ -84,7 +84,8 @@
         }
         echo "<h2 class=\"text-wrapper\">Order up!</h2>";
         // this button does work!
-        echo '<tr><td class="no-border"><input type="submit" class="small-button" value="Add selected to Order" action=""></td></tr></table>';
+        echo '<tr><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border">
+        <td class="no-border"><input type="submit" class="small-button" value="Add selected to Order" action=""></td></tr></table>';
     }
     else {
         $err = $conn->errno; 
