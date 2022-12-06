@@ -8,7 +8,7 @@ $sql = "SELECT * FROM POPULAR_MONTH_ITEMS";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["itemName"] . "</td><td>" . $row["itemCount"] . "</td></tr>";
+        echo "<tr><td>" . $row["itemName"] . "</td><td>" . $row["num_ordered"] . "</td></tr>";
     }
 } else {
     echo "0 results";
