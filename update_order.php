@@ -65,7 +65,6 @@ if (isset($_POST['orderID'])) {
     $conn->query($updateOrderQuery);
     echo "Information for {$_POST['orderID']} updated successfully.<br><br>";
     echo "<a href=\"manage_orders.php\">Return</a> to Order Management.";
-    exit();
   } catch (Exception $e) {
     echo $e->getMessage();
   }
