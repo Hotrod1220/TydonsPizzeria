@@ -19,26 +19,23 @@
         <form action="" method=post>
         <h2>Select your name: </h2>
             <select name="cust">
-                <?php
-                    $sql = "SELECT * FROM CUSTOMER";
-                    $result = $conn->query($sql);
-                    if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $custID = $row["custID"];
-                            $field2 = $row["name"];
-                            echo "<option value='$custID'>$field2</option>";
-                        }
-                    }
-                    else {
-                        $err = $conn->errno; 
-                        echo "<p>MySQL error code $err </p>";
-                    }
-                ?>
-        <?php
+<?php
     require_once '/home/hipt3660/config/mysql_config.php';
+    $sql = "SELECT * FROM CUSTOMER";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $custID = $row["custID"];
+            $field2 = $row["name"];
+            echo "<option value='$custID'>$field2</option>";
+        }
+    }
+    else {
+        $err = $conn->errno; 
+        echo "<p>MySQL error code $err </p>";
+    }
+    
     date_default_timezone_set('America/Edmonton');
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
     $getEmp = "SELECT * FROM EMPLOYEE WHERE clockedIn = 1";
     $res = $conn->query($getEmp);
     while($clockedEmp = $res->fetch_assoc()) {
