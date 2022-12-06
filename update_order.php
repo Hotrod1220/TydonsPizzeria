@@ -9,32 +9,54 @@ if (isset($_POST['orderID'])) {
   if (isset($_POST['clockedIn'])) {
     $clockedIn = 1;
   }
-  // for each? or just one?
-  if(isset($quantity)) {
-    if ($_POST['oldQuant']) {
-      if (!$quantity) {
-        // delete this contains row
-        $sql1 = "DELETE FROM CONTAINS WHERE orderID = $_POST[orderID] AND itemID = $_POST[itemID]";
+  $oop = $_POST['oldOrderPrice'];
 
-      } else {
-        // update this contains row's quantity
-
-
+  if(isset($_POST['quantity'])) { // checking if new quant is set
+    $quanty = $_POST['quantity'];
+    // get price for order
+    
+    foreach($quanty as $itemy => $quantidy) {
+      // itemPrice for each item
+      $iip = $_POST['itemPrice'][$itemy];
+    if (isset($_POST['oldQuant'])) {
+      if ($quantidy != $_POST['oldQuant'][$itemy]) {
+        if($quantidy == 0) {
+          $deleteQuery = "DELETE from CONTAINS where orderID = $_POST[orderID] and itemID = $itemy";
+          try {
+            $conn->query($deleteQuery);
+            $oop -= $iip * $_POST['oldQuant'][$itemy]; // oop = old order price, iip = individual item price
+          } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+          }
+          } else {
+            $updateQuery = "UPDATE CONTAINS set quantity = $quantidy where orderID = $_POST[orderID] and itemID = $itemy";
+            try {
+              $conn->query($updateQuery);
+              $oop -= $iip * $_POST['oldQuant'][$itemy];
+              $oop += $iip * $quantidy;
+            } catch (Exception $e) {
+              echo "Error: " . $e->getMessage();
+            }
+          }
+        }
+      } else if ($quantidy) { // needs a new condition to actually work
+        // insert new contains row using orderID
+        $insertQuery = "INSERT INTO CONTAINS (orderID, itemID, quantity) VALUES ($_POST[orderID], $itemy, $quantidy)";
+        try {
+          $conn->query($insertQuery);
+          $oop += $iip * $quantidy;
+        } catch (Exception $e) {
+          echo "Error: " . $e->getMessage();
+        }
       }
-    } else if ($quantity) {
-      // insert new contains row using orderID
-
     }
-  }
-  $sql = "update ORDERS set status = '{$_POST['status']}',
-    isComplete = '{$_POST['isComplete']}',
-    empID = $employeeID,
-    where orderID = {$_POST['orderID']};"
-  ;
+  } 
+  $updateOrderQuery = "UPDATE ORDERS set price = $oop, status = $_POST[status], empID = $_POST[empID], isComplete = $_POST[isComplete] where orderID = $_POST[orderID]";
+  
   try {
-    $conn->query($sql);
-    echo "Information for {$_POST['name']} updated successfully.<br><br>";
-    echo "<a href=\"manage_orders.php\">Return</a> to Employee Management.";
+    $conn->query($updateOrderQuery);
+    echo "Information for {$_POST['orderID']} updated successfully.<br><br>";
+    echo "<a href=\"manage_orders.php\">Return</a> to Order Management.";
     exit();
   } catch (Exception $e) {
     echo $e->getMessage();
@@ -44,6 +66,9 @@ if (isset($_POST['orderID'])) {
   header('Location: manage_orders.php');
   exit();
 }
+
+  
+
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +122,7 @@ if (isset($_POST['orderID'])) {
             echo $e->getMessage();
           }
         $itemname = $resiname->fetch_assoc();
-        echo "<h2>Update Information for Order {$order['orderID']}</h2>";
+            echo "<h2>Update Information for Order {$order['orderID']}</h2>";
         echo "<form action='' method='post'>";
         echo "Status: <input type=text name='status' value='{$order['status']}' size=20><br><br>";
         echo "Employee ID: <input type=text name='empID' value={$order['empID']} size=6><br><br>";
@@ -140,6 +165,7 @@ if (isset($_POST['orderID'])) {
           echo "<input type=checkbox name='isComplete'><br><br>";
         }
         echo "<input type=hidden name='orderID' value='{$_GET['orderID']}'>";
+        echo "<input type=hidden name='oldOrderPrice' value='{$order['price']}'>";
         echo "<td class='no-border'><input type='submit' class='small-button' value='Confirm changes to Order {$_GET['orderID']}' action=''> </table> </form>";
       } else {
         echo "No order with ID of {$_GET['orderID']} exists.";
