@@ -6,14 +6,17 @@ date_default_timezone_set('America/Edmonton');
 
 $sql = "SELECT * FROM POPULAR_MONTH_ITEMS";
 $result = $conn->query($sql);
+echo '<table> <tr> <th> Item Name </th> <th> Quantity Sold </th> </tr>';
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["itemName"] . "</td><td>" . $row["num_ordered"] . "</td></tr>";
+        echo '<tr>';
+        echo '<td>' . $row['itemName'] . '</td>';
+        echo '<td>' . $row['quantitySold'] . '</td>';
+        echo '</tr>';
     }
-} else {
-    echo "0 results";
 }
+echo '</table>';
 ?>
 <html>
-    <h1> Heli's Bakery </h1>
+    <h1> Heli's Bakery Coming Soon!</h1>
 </html>
