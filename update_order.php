@@ -1,10 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tydon's Pizzeria - Update Employee</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+  <body>
+  <header class="wrapper">
+            <div class="container orange-text">
+                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
+            </div>
+        </header>
+  <div class="container">
+
 <?php
 if (isset($_POST['orderID'])) {
   // posted a change, update table
   require_once '/home/hipt3660/config/mysql_config.php';
   date_default_timezone_set('America/Edmonton');
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
   $clockedIn = 0;
   if (isset($_POST['clockedIn'])) {
     $clockedIn = 1;
@@ -22,7 +38,6 @@ if (isset($_POST['orderID'])) {
       if ($quantidy != $_POST['oldQuant'][$itemy]) {
         if($quantidy == 0) {
           $deleteQuery = "DELETE from CONTAINS where orderID = $_POST[orderID] and itemID = $itemy";
-          echo $deleteQuery;
           try {
             $conn->query($deleteQuery);
             $oop -= $iip * $_POST['oldQuant'][$itemy]; // oop = old order price, iip = individual item price
@@ -31,7 +46,6 @@ if (isset($_POST['orderID'])) {
           }
           } else {
             $updateQuery = "UPDATE CONTAINS set quantity = $quantidy where orderID = $_POST[orderID] and itemID = $itemy";
-            echo $updateQuery;
             try {
               $conn->query($updateQuery);
               $oop -= $iip * $_POST['oldQuant'][$itemy];
@@ -44,7 +58,6 @@ if (isset($_POST['orderID'])) {
       } else if ($quantidy) { // needs a new condition to actually work
         // insert new contains row using orderID
         $insertQuery = "INSERT INTO CONTAINS (orderID, itemID, quantity) VALUES ($_POST[orderID], $itemy, $quantidy)";
-        echo $insertQuery;
         try {
           $conn->query($insertQuery);
           $oop += $iip * $quantidy;
@@ -64,7 +77,8 @@ if (isset($_POST['orderID'])) {
   try {
     $conn->query($updateOrderQuery);
     echo "Information for {$_POST['orderID']} updated successfully.<br><br>";
-    echo "<a href=\"manage_orders.php\">Return</a> to Order Management.";
+    echo "<a href=\"manage_orders.php\" class=\"button\">Return to Order Management.</a>";
+    exit();
   } catch (Exception $e) {
     echo $e->getMessage();
   }
@@ -74,28 +88,6 @@ if (isset($_POST['orderID'])) {
   exit();
 }
 
-  
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Tydon's Pizzeria - Update Employee</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-  <body>
-  <header class="wrapper">
-            <div class="container orange-text">
-                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
-            </div>
-        </header>
-  <div class="container">
-    <?php
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from ORDERS where orderID = {$_GET['orderID']}";
       
