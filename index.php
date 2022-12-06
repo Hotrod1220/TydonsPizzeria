@@ -40,6 +40,11 @@
                       <a href="manage_orders.php" class="button">Manage an Order</a>
                   </div>
                   <div class="text-wrapper">
+                      <h3>Multi-Query Options</h3>
+                      <a href="current_orders.php" class="button">Current Orders</a>
+                      <a href="pop_items.php" class="button">Popular Month Items</a><br>
+                  </div>
+                  <div class="text-wrapper">
                       <a href="update_website.php" class="button">DEV: update website page</a>
                   </div>
               </div>
