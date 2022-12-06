@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '<tr>';
         echo '<td>' . $row['itemName'] . '</td>';
-        echo '<td>' . $row['quantitySold'] . '</td>';
+        echo '<td>' . $row['num_ordered'] . '</td>';
         echo '</tr>';
     }
 }
