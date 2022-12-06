@@ -54,7 +54,13 @@
                 $containsQuery = "INSERT into CONTAINS values ($quantity, $add, $orderID)";
                 $conn->query($containsQuery);
             }
+            echo 'Order #' . $orderID . ' placed successfully';
+            echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
+            exit();
         }
+        echo 'Order was not created, please call the store at (555) 555-5555 for assistance.';
+        echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
+        exit();
     }
     echo '<table> <tr>
     <td> Name </td> 
