@@ -29,6 +29,7 @@
             $field2 = $row["name"];
             echo "<option value='$custID'>$field2</option>";
         }
+        echo "</select>";
     }
     else {
         $err = $conn->errno; 
