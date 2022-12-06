@@ -113,7 +113,6 @@ if (isset($_POST['orderID'])) {
       }
 
       if ($result->num_rows != 0) {
-        if ($resultc->num_rows != 0) {
         $order = $result->fetch_assoc();
         $contains = $resultc->fetch_assoc();
         $sqliname = "SELECT itemName FROM MENU WHERE itemID = {$contains['itemID']}";
@@ -169,9 +168,6 @@ if (isset($_POST['orderID'])) {
         echo "<input type=hidden name='orderID' value='{$_GET['orderID']}'>";
         echo "<input type=hidden name='oldOrderPrice' value='{$order['price']}'>";
         echo "<td class='no-border'><input type='submit' class='small-button' value='Confirm changes to Order {$_GET['orderID']}' action=''> </table> </form>";
-      } else {
-        echo "No order with ID of {$_GET['orderID']} exists.";
-      }
     } else {
         echo "No order with ID of {$_GET['orderID']} exists. :(";
       }
