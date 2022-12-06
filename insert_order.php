@@ -38,7 +38,7 @@
                 $price += $priceFetch['itemPrice'] * $quantity;
             }
         }
-        if (!(isset($clocked))) {
+        if (!(isset($clockd))) {
             echo "There are no employees clocked in, please place your order during business hours.";
             echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
             exit();
