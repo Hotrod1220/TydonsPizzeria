@@ -29,7 +29,7 @@ if (isset($_POST['itemName'])) {
         $err = $conn->errno; 
         echo "<p>MySQL error code $err </p>";
     }
-    echo "<a href=\"index.php\">Return</a> to Home Page.";
+    echo "<a href=\"index.php\" class=\"button\">Return to Home.</a>";
     exit();
 }
 ?>
