@@ -18,8 +18,6 @@
     <h1 class="text-wrapper"> The Most Popular Menu Items of the Month!</h1>
 
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 require_once '/home/hipt3660/config/mysql_config.php';
 date_default_timezone_set('America/Edmonton');
 
