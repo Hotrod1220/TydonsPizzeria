@@ -68,7 +68,7 @@ if (isset($_POST['orderID'])) {
     }
   } 
   if(isset($_POST['isComplete'])) {
-    $updateOrderQuery = "UPDATE ORDERS set price = $oop, status = $_POST[status], empID = $_POST[empID], isComplete = $_POST[isComplete] where orderID = $_POST[orderID]";
+    $updateOrderQuery = "UPDATE ORDERS set price = $oop, status = $_POST[status], empID = $_POST[empID], isComplete = 1 where orderID = $_POST[orderID]";
   } else {
     $updateOrderQuery = "UPDATE ORDERS set price = $oop, status = $_POST[status], empID = $_POST[empID] where orderID = $_POST[orderID]";
   }
