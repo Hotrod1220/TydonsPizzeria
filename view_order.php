@@ -75,7 +75,7 @@
             echo '<tr> 
                     <td>'. $field1name.'</td> 
                     <td>'. $field3name.'</td> 
-                    <td>'. $field4name. '</td> 
+                    <td>$'. $field4name. '</td> 
                     <td>'. $field5name.'</td>
                     <td>'. $field6name.'</td> 
                     <td>'. $field7name.'</td>
