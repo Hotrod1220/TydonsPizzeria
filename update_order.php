@@ -18,7 +18,7 @@ if (isset($_POST['orderID'])) {
     foreach($quanty as $itemy => $quantidy) {
       // itemPrice for each item
       $iip = $_POST['itemPrice'][$itemy];
-    if (isset($_POST['oldQuant'][$itemy] && $_POST['oldQuant'][$itemy] > 0)) {
+    if (isset($_POST['oldQuant'][$itemy]) && $_POST['oldQuant'][$itemy] > 0) {
       if ($quantidy != $_POST['oldQuant'][$itemy]) {
         if($quantidy == 0) {
           $deleteQuery = "DELETE from CONTAINS where orderID = $_POST[orderID] and itemID = $itemy";
