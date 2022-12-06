@@ -99,12 +99,6 @@ if (isset($_POST['orderID'])) {
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from ORDERS where orderID = {$_GET['orderID']}";
       $sqlc = "select * from CONTAINS where orderID = {$_GET['orderID']}";
-
-      foreach ($_POST['add'] as $add => $quantity) {
-        if (!$quantity) { continue; }
-        $containsQuery = "INSERT into CONTAINS values ($quantity, $add, $orderID)";
-        $conn->query($containsQuery);
-    }
       
       try {
         $result = $conn->query($sql);
