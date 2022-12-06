@@ -158,7 +158,7 @@ if (isset($_POST['orderID'])) {
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
                       <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name' value='$rowq[quantity]'></td>
-                      <input type='hidden' name='oldQuant' value='$rowq[quantity]'>
+                      <input type='hidden' name='oldQuant[$row[itemID]]' value='$rowq[quantity]'>
                   </tr>";
         }}
         echo "Order Completed?: ";
