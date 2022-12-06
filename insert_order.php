@@ -19,7 +19,7 @@
         <form action="" method=post>
 <?php
     require_once '/home/hipt3660/config/mysql_config.php';
-    if (!isset($_POST)) {
+    if (!isset($_POST['add'])) {
         echo '
         <h2>Select your name: </h2>
             <select name="cust">
