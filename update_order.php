@@ -22,6 +22,7 @@ if (isset($_POST['orderID'])) {
       if ($quantidy != $_POST['oldQuant'][$itemy]) {
         if($quantidy == 0) {
           $deleteQuery = "DELETE from CONTAINS where orderID = $_POST[orderID] and itemID = $itemy";
+          echo $deleteQuery;
           try {
             $conn->query($deleteQuery);
             $oop -= $iip * $_POST['oldQuant'][$itemy]; // oop = old order price, iip = individual item price
@@ -30,6 +31,7 @@ if (isset($_POST['orderID'])) {
           }
           } else {
             $updateQuery = "UPDATE CONTAINS set quantity = $quantidy where orderID = $_POST[orderID] and itemID = $itemy";
+            echo $updateQuery;
             try {
               $conn->query($updateQuery);
               $oop -= $iip * $_POST['oldQuant'][$itemy];
@@ -42,6 +44,7 @@ if (isset($_POST['orderID'])) {
       } else if ($quantidy) { // needs a new condition to actually work
         // insert new contains row using orderID
         $insertQuery = "INSERT INTO CONTAINS (orderID, itemID, quantity) VALUES ($_POST[orderID], $itemy, $quantidy)";
+        echo $insertQuery;
         try {
           $conn->query($insertQuery);
           $oop += $iip * $quantidy;
