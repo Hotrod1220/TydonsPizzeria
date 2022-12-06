@@ -44,14 +44,7 @@ if (isset($_POST['itemID'])) {
   header('Location: manage_menu.php');
   exit();
 }
-?>
 
-            <div class="container orange-text">
-                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
-            </div>
-        </header>
-    <div class="container wrapper">
-    <?php
       require_once '/home/hipt3660/config/mysql_config.php';
       $sql = "select * from MENU where itemID = {$_GET['itemID']}";
       
