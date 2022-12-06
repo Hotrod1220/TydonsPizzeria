@@ -17,6 +17,23 @@
         </header>
         <main class="container">
         <form action="" method=post>
+        <h2>Select your name: </h2>
+            <select name="cust">
+                <?php
+                    $sql = "SELECT * FROM CUSTOMER";
+                    $result = $conn->query($sql);
+                    if($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $custID = $row["custID"];
+                            $field2 = $row["name"];
+                            echo "<option value='$custID'>$field2</option>";
+                        }
+                    }
+                    else {
+                        $err = $conn->errno; 
+                        echo "<p>MySQL error code $err </p>";
+                    }
+                ?>
         <?php
     require_once '/home/hipt3660/config/mysql_config.php';
     date_default_timezone_set('America/Edmonton');
@@ -76,7 +93,7 @@
 
             echo '<tr> 
                       <td>'. $field2name.'</td> 
-                      <td>'. $field3name.'</td> 
+                      <td>$'. $field3name.'</td> 
                       <td>'. $vegan. '</td> 
                       <td>'. $field5name."</td> 
                       <td><input type='number' name='add[$row[itemID]]' min='0' max='$field5name'></td>
@@ -85,30 +102,14 @@
         echo "<h2 class=\"text-wrapper\">Order up!</h2>";
         // this button does work!
         echo '<tr><td/ class="no-border"><td/ class="no-border"><td/ class="no-border"><td/ class="no-border">
-        <td class="no-border"><input type="submit" class="small-button" value="Add selected to Order" action=""></td></tr></table>';
+        <td class="no-border"><input type="submit" class="small-button" value="Place Order" action=""></td></tr></table>';
     }
     else {
         $err = $conn->errno; 
         echo "<p>MySQL error code $err </p>";
     }
 ?>
-<h2>Select your name: </h2>
-            <select name="cust">
-                <?php
-                    $sql = "SELECT * FROM CUSTOMER";
-                    $result = $conn->query($sql);
-                    if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $custID = $row["custID"];
-                            $field2 = $row["name"];
-                            echo "<option value='$custID'>$field2</option>";
-                        }
-                    }
-                    else {
-                        $err = $conn->errno; 
-                        echo "<p>MySQL error code $err </p>";
-                    }
-                ?>
+
         </form>
         <a href="index.php" class="button">Return Home</a>
         </main>
