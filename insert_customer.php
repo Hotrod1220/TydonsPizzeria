@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tydon's Pizzeria - Hire a New Employee</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="wrapper">
+            <div class="container orange-text">
+                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
+            </div>
+        </header>
+        <main class="container">
+
 <?php
 if (isset($_POST['name'])) {
 
@@ -16,23 +34,6 @@ if (isset($_POST['name'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Tydon's Pizzeria - Add a New Customer</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <header class="wrapper">
-            <div class="container orange-text">
-                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
-            </div>
-        </header>
-        <main class="container">
             <h2 class="orange-text">Add a New Customer</h2>
             <form action="" method=post>
                 Name: <input type=text name="name" size=20><br><br>
