@@ -58,8 +58,8 @@
             }
         }
         if (!(isset($clockd))) {
-            echo "There are no employees clocked in, please place your order during business hours.";
-            echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
+            echo "<h3 class=\"text-wrapper\">There are no employees clocked in, please place your order during business hours.</h3>";
+            echo "<a href=index.php class=button> Return to the home page.</a>";
             exit();
         }
         $addQuery = "INSERT into ORDERS (status, price, orderTime, isComplete, empID, custID) values ('Received', $price, $now, 0, $clockd, $_POST[cust])";
@@ -73,12 +73,12 @@
                 $containsQuery = "INSERT into CONTAINS values ($quantity, $add, $orderID)";
                 $conn->query($containsQuery);
             }
-            echo 'Order #' . $orderID . ' placed successfully';
-            echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
+            echo '<h2 class="text-wrapper">Order #' . $orderID . ' placed successfully</h2>';
+            echo "<a href=index.php class=button> Return to the home page.</a>";
             exit();
         }
-        echo 'Order was not created, please call the store at (555) 555-5555 for assistance.';
-        echo "<br> <br> <a href=index.php class=button> Return to the home page.</a>";
+        echo '<h3 class="text-wrapper">Order was not created, please call the store at (555) 555-5555 for assistance.</h3>';
+        echo "<a href=index.php class=button> Return to the home page.</a>";
         exit();
     }
     echo '<table> <tr>
