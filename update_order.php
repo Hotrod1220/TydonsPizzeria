@@ -146,7 +146,11 @@ if (isset($_POST['orderID'])) {
 
             // display quantity for item in that row where itemID = itemID
             $sqlq = "SELECT quantity FROM CONTAINS WHERE itemID = {$row['itemID']} AND orderID = {$_GET['orderID']}";
-            $resultq = $conn->query($sqlq);
+            try {
+              $resultq = $conn->query($sqlq);
+            } catch (Exception $e) {
+              echo $e->getMessage();
+            }
             $rowq = $resultq->fetch_assoc();
 
             echo '<tr> 
