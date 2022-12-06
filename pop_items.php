@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tydon's Pizzeria - Update Employee</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+  <header class="wrapper">
+            <div class="container orange-text">
+                <h1><a href="index.php">Tydon's Pizzeria<a></h1>
+            </div>
+        </header>
+  <div class="container">
+    <h1 class="text-wrapper"> The Most Popular Menu Items of the Month!</h1>
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -17,6 +36,3 @@ if ($result->num_rows > 0) {
 }
 echo '</table>';
 ?>
-<html>
-    <h1> Heli's Bakery Coming Soon!</h1>
-</html>
