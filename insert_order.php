@@ -17,23 +17,27 @@
         </header>
         <main class="container">
         <form action="" method=post>
-        <h2>Select your name: </h2>
-            <select name="cust">
 <?php
     require_once '/home/hipt3660/config/mysql_config.php';
-    $sql = "SELECT * FROM CUSTOMER";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $custID = $row["custID"];
-            $field2 = $row["name"];
-            echo "<option value='$custID'>$field2</option>";
+    if (!isset($_POST)) {
+        echo '
+        <h2>Select your name: </h2>
+            <select name="cust">
+        ';
+        $sql = "SELECT * FROM CUSTOMER";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $custID = $row["custID"];
+                $field2 = $row["name"];
+                echo "<option value='$custID'>$field2</option>";
+            }
+            echo "</select>";
         }
-        echo "</select>";
-    }
-    else {
-        $err = $conn->errno; 
-        echo "<p>MySQL error code $err </p>";
+        else {
+            $err = $conn->errno; 
+            echo "<p>MySQL error code $err </p>";
+        }
     }
     
     date_default_timezone_set('America/Edmonton');
