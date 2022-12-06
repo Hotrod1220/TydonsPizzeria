@@ -11,8 +11,8 @@ if (isset($_POST['orderID'])) {
   }
   $oop = $_POST['oldOrderPrice'];
 
-  if(isset($_POST['quantity'])) { // checking if new quant is set
-    $quanty = $_POST['quantity'];
+  if(isset($_POST['add'])) { // checking if new quant is set
+    $quanty = $_POST['add'];
     // get price for order
     
     foreach($quanty as $itemy => $quantidy) {
